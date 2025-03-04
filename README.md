@@ -13,3 +13,14 @@
 - [Отчет]()
 
 </details>
+
+<details>
+<summary>
+Лабораторная работа №2
+</summary>
+
+- [Условие, вариант 18](https://cloud.mail.ru/public/aAsW/az5evQCC1/lab_work_2_v5.odt)
+- [Реализация](./lab2/src)
+- [Отчет]()
+
+</details>
