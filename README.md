@@ -9,7 +9,7 @@
 </summary>
 
 - [Условие, вариант 6](https://cloud.mail.ru/public/aAsW/az5evQCC1/lab_work_1_v4.pdf)
-- [Реализация](https://github.com/kvassenjoyer/MAI_OS_Labs_3sem/blob/develop/lab1/src)
+- [Реализация](./lab1/src)
 - [Отчет]()
 
 </details>
