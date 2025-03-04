@@ -1,0 +1,131 @@
+strace -f ./parent                                                             
+execve("./parent", ["./parent"], 0x7ffd85daf338 /* 63 vars */) = 0
+brk(NULL)                               = 0x55929cf86000
+arch_prctl(0x3001 /* ARCH_??? */, 0x7ffe727a1110) = -1 EINVAL (Invalid argument)
+mmap(NULL, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7ff64f892000
+access("/etc/ld.so.preload", R_OK)      = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/etc/ld.so.cache", O_RDONLY|O_CLOEXEC) = 3
+newfstatat(3, "", {st_mode=S_IFREG|0644, st_size=166595, ...}, AT_EMPTY_PATH) = 0
+mmap(NULL, 166595, PROT_READ, MAP_PRIVATE, 3, 0) = 0x7ff64f869000
+close(3)                                = 0
+openat(AT_FDCWD, "/lib/x86_64-linux-gnu/libc.so.6", O_RDONLY|O_CLOEXEC) = 3
+read(3, "\177ELF\2\1\1\3\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0P\237\2\0\0\0\0\0"..., 832) = 832
+pread64(3, "\6\0\0\0\4\0\0\0@\0\0\0\0\0\0\0@\0\0\0\0\0\0\0@\0\0\0\0\0\0\0"..., 784, 64) = 784
+pread64(3, "\4\0\0\0 \0\0\0\5\0\0\0GNU\0\2\0\0\300\4\0\0\0\3\0\0\0\0\0\0\0"..., 48, 848) = 48
+pread64(3, "\4\0\0\0\24\0\0\0\3\0\0\0GNU\0\315A\vq\17\17\tLh2\355\331Y1\0m"..., 68, 896) = 68
+newfstatat(3, "", {st_mode=S_IFREG|0755, st_size=2220400, ...}, AT_EMPTY_PATH) = 0
+pread64(3, "\6\0\0\0\4\0\0\0@\0\0\0\0\0\0\0@\0\0\0\0\0\0\0@\0\0\0\0\0\0\0"..., 784, 64) = 784
+mmap(NULL, 2264656, PROT_READ, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0x7ff64f640000
+mprotect(0x7ff64f668000, 2023424, PROT_NONE) = 0
+mmap(0x7ff64f668000, 1658880, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x28000) = 0x7ff64f668000
+mmap(0x7ff64f7fd000, 360448, PROT_READ, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x1bd000) = 0x7ff64f7fd000
+mmap(0x7ff64f856000, 24576, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x215000) = 0x7ff64f856000
+mmap(0x7ff64f85c000, 52816, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0x7ff64f85c000
+close(3)                                = 0
+mmap(NULL, 12288, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7ff64f63d000
+arch_prctl(ARCH_SET_FS, 0x7ff64f63d740) = 0
+set_tid_address(0x7ff64f63da10)         = 400180
+set_robust_list(0x7ff64f63da20, 24)     = 0
+rseq(0x7ff64f63e0e0, 0x20, 0, 0x53053053) = 0
+mprotect(0x7ff64f856000, 16384, PROT_READ) = 0
+mprotect(0x55927cdd2000, 4096, PROT_READ) = 0
+mprotect(0x7ff64f8cc000, 8192, PROT_READ) = 0
+prlimit64(0, RLIMIT_STACK, NULL, {rlim_cur=8192*1024, rlim_max=RLIM64_INFINITY}) = 0
+munmap(0x7ff64f869000, 166595)          = 0
+pipe2([3, 4], 0)                        = 0
+clone(child_stack=NULL, flags=CLONE_CHILD_CLEARTID|CLONE_CHILD_SETTID|SIGCHLDstrace: Process 400181 attached
+, child_tidptr=0x7ff64f63da10) = 400181
+[pid 400180] close(3)                   = 0
+[pid 400181] set_robust_list(0x7ff64f63da20, 24 <unfinished ...>
+[pid 400180] newfstatat(1, "",  <unfinished ...>
+[pid 400181] <... set_robust_list resumed>) = 0
+[pid 400180] <... newfstatat resumed>{st_mode=S_IFCHR|0620, st_rdev=makedev(0x88, 0x2), ...}, AT_EMPTY_PATH) = 0
+[pid 400180] getrandom( <unfinished ...>
+[pid 400181] close(4 <unfinished ...>
+[pid 400180] <... getrandom resumed>"\x39\x2e\xe4\x2e\xd2\xf9\x43\xab", 8, GRND_NONBLOCK) = 8
+[pid 400181] <... close resumed>)       = 0
+[pid 400180] brk(NULL <unfinished ...>
+[pid 400181] dup2(3, 0 <unfinished ...>
+[pid 400180] <... brk resumed>)         = 0x55929cf86000
+[pid 400181] <... dup2 resumed>)        = 0
+[pid 400180] brk(0x55929cfa7000 <unfinished ...>
+[pid 400181] close(3 <unfinished ...>
+[pid 400180] <... brk resumed>)         = 0x55929cfa7000
+[pid 400181] <... close resumed>)       = 0
+[pid 400180] write(1, "\320\222\320\262\320\265\320\264\320\270\321\202\320\265 \320\277\321\203\321\202\321\214 \320\272 \321\204\320\260\320"..., 39 <unfinished ...>
+Введите путь к файлу:
+[pid 400181] execve("./child", ["child"], 0x7ffe727a12e8 /* 63 vars */ <unfinished ...>
+[pid 400180] <... write resumed>)       = 39
+[pid 400180] newfstatat(0, "", {st_mode=S_IFCHR|0620, st_rdev=makedev(0x88, 0x2), ...}, AT_EMPTY_PATH) = 0
+[pid 400180] read(0,  <unfinished ...>
+[pid 400181] <... execve resumed>)      = 0
+[pid 400181] brk(NULL)                  = 0x55f4b721b000
+[pid 400181] arch_prctl(0x3001 /* ARCH_??? */, 0x7ffec77c0ce0) = -1 EINVAL (Invalid argument)
+[pid 400181] mmap(NULL, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f0ab21cb000
+[pid 400181] access("/etc/ld.so.preload", R_OK) = -1 ENOENT (No such file or directory)
+[pid 400181] openat(AT_FDCWD, "/etc/ld.so.cache", O_RDONLY|O_CLOEXEC) = 3
+[pid 400181] newfstatat(3, "", {st_mode=S_IFREG|0644, st_size=166595, ...}, AT_EMPTY_PATH) = 0
+[pid 400181] mmap(NULL, 166595, PROT_READ, MAP_PRIVATE, 3, 0) = 0x7f0ab21a2000
+[pid 400181] close(3)                   = 0
+[pid 400181] openat(AT_FDCWD, "/lib/x86_64-linux-gnu/libc.so.6", O_RDONLY|O_CLOEXEC) = 3
+[pid 400181] read(3, "\177ELF\2\1\1\3\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0P\237\2\0\0\0\0\0"..., 832) = 832
+[pid 400181] pread64(3, "\6\0\0\0\4\0\0\0@\0\0\0\0\0\0\0@\0\0\0\0\0\0\0@\0\0\0\0\0\0\0"..., 784, 64) = 784
+[pid 400181] pread64(3, "\4\0\0\0 \0\0\0\5\0\0\0GNU\0\2\0\0\300\4\0\0\0\3\0\0\0\0\0\0\0"..., 48, 848) = 48
+[pid 400181] pread64(3, "\4\0\0\0\24\0\0\0\3\0\0\0GNU\0\315A\vq\17\17\tLh2\355\331Y1\0m"..., 68, 896) = 68
+[pid 400181] newfstatat(3, "", {st_mode=S_IFREG|0755, st_size=2220400, ...}, AT_EMPTY_PATH) = 0
+[pid 400181] pread64(3, "\6\0\0\0\4\0\0\0@\0\0\0\0\0\0\0@\0\0\0\0\0\0\0@\0\0\0\0\0\0\0"..., 784, 64) = 784
+[pid 400181] mmap(NULL, 2264656, PROT_READ, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0x7f0ab1f79000
+[pid 400181] mprotect(0x7f0ab1fa1000, 2023424, PROT_NONE) = 0
+[pid 400181] mmap(0x7f0ab1fa1000, 1658880, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x28000) = 0x7f0ab1fa1000
+[pid 400181] mmap(0x7f0ab2136000, 360448, PROT_READ, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x1bd000) = 0x7f0ab2136000
+[pid 400181] mmap(0x7f0ab218f000, 24576, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x215000) = 0x7f0ab218f000
+[pid 400181] mmap(0x7f0ab2195000, 52816, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0x7f0ab2195000
+[pid 400181] close(3)                   = 0
+[pid 400181] mmap(NULL, 12288, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f0ab1f76000
+[pid 400181] arch_prctl(ARCH_SET_FS, 0x7f0ab1f76740) = 0
+[pid 400181] set_tid_address(0x7f0ab1f76a10) = 400181
+[pid 400181] set_robust_list(0x7f0ab1f76a20, 24) = 0
+[pid 400181] rseq(0x7f0ab1f770e0, 0x20, 0, 0x53053053) = 0
+[pid 400181] mprotect(0x7f0ab218f000, 16384, PROT_READ) = 0
+[pid 400181] mprotect(0x55f4a0ab8000, 4096, PROT_READ) = 0
+[pid 400181] mprotect(0x7f0ab2205000, 8192, PROT_READ) = 0
+[pid 400181] prlimit64(0, RLIMIT_STACK, NULL, {rlim_cur=8192*1024, rlim_max=RLIM64_INFINITY}) = 0
+[pid 400181] munmap(0x7f0ab21a2000, 166595) = 0
+[pid 400181] newfstatat(0, "", {st_mode=S_IFIFO|0600, st_size=0, ...}, AT_EMPTY_PATH) = 0
+[pid 400181] getrandom("\xd8\x9d\x36\x68\xf9\xa1\x26\x47", 8, GRND_NONBLOCK) = 8
+[pid 400181] brk(NULL)                  = 0x55f4b721b000
+[pid 400181] brk(0x55f4b723c000)        = 0x55f4b723c000
+[pid 400181] read(0, file.txt
+ <unfinished ...>
+[pid 400180] <... read resumed>"file.txt\n", 1024) = 9
+[pid 400180] openat(AT_FDCWD, "file.txt", O_RDONLY) = 3
+[pid 400180] read(3, "17 21 67\n12 50 0\n7 -21 314\n-201 "..., 4096) = 35
+[pid 400180] write(4, "17 21 67\n12 50 0\n7 -21 314\n-201 "..., 35) = 35
+[pid 400181] <... read resumed>"17 21 67\n12 50 0\n7 -21 314\n-201 "..., 4096) = 35
+[pid 400180] close(3 <unfinished ...>
+[pid 400181] write(1, "17 21 67", 8 <unfinished ...>
+[pid 400180] <... close resumed>)       = 0
+17 21 67[pid 400180] close(4 <unfinished ...>
+[pid 400181] <... write resumed>)       = 8
+[pid 400180] <... close resumed>)       = 0
+[pid 400180] wait4(-1,  <unfinished ...>
+[pid 400181] newfstatat(1, "", {st_mode=S_IFCHR|0620, st_rdev=makedev(0x88, 0x2), ...}, AT_EMPTY_PATH) = 0
+[pid 400181] write(1, " -> 105\n", 8 -> 105
+)   = 8
+[pid 400181] write(1, "12 50 0", 712 50 0)     = 7
+[pid 400181] write(1, " -> 62\n", 7 -> 62
+)    = 7
+[pid 400181] write(1, "7 -21 314", 97 -21 314)   = 9
+[pid 400181] write(1, " -> 300\n", 8 -> 300
+)   = 8
+[pid 400181] write(1, "-201 77", 7-201 77)     = 7
+[pid 400181] write(1, " -> -124\n", 9 -> -124
+)  = 9
+[pid 400181] read(0, "", 4096)          = 0
+[pid 400181] exit_group(0)              = ?
+[pid 400181] +++ exited with 0 +++
+<... wait4 resumed>NULL, 0, NULL)       = 400181
+--- SIGCHLD {si_signo=SIGCHLD, si_code=CLD_EXITED, si_pid=400181, si_uid=1000, si_status=0, si_utime=0, si_stime=0} ---
+lseek(0, -1, SEEK_CUR)                  = -1 ESPIPE (Illegal seek)
+exit_group(0)                           = ?
++++ exited with 0 +++
