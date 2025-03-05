@@ -1,11 +1,8 @@
-#include <pthread.h>
-#include <stdlib.h>
-#include <sys/time.h>
-#include <time.h>
-#include <unistd.h>
-
+#include "pthread.h"
 #include "stdio.h"
+#include "stdlib.h"
 #include "string.h"
+#include "time.h"
 
 #define MAX(a, b) ((a) >= (b) ? (a) : (b))
 #define MIN(a, b) ((a) <= (b) ? (a) : (b))
@@ -144,7 +141,7 @@ int main(int argc, char *argv[]) {
     }
 
     for (int i = 0; i < substr_len; i++) {
-        substr[i] = str[substr_start + i]; // Подстрока всегда должна найтись
+        substr[i] = str[substr_start + i];  // Подстрока всегда должна найтись
         // substr[i] = (rand() % 96) + ' ';  // Подстрока может и не найтись (-1)
     }
 
