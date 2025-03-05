@@ -8,7 +8,7 @@
 #define MAX_FILENAME 256
 #define BUFFER_SIZE 4096
 
-int main(){
+int main() {
     int pipe1[2];
     pid_t child;
 
@@ -21,7 +21,7 @@ int main(){
         perror("Ошибка при создании дочернего процесса\n");
         exit(1);
     }
-    
+
     if (child == 0) {
         close(pipe1[1]);
         dup2(pipe1[0], STDIN_FILENO);
@@ -36,14 +36,13 @@ int main(){
     char filepath[MAX_FILENAME];
     printf("Введите путь к файлу:\n");
     scanf("%s", filepath);
-    
+
     int fd = open(filepath, O_RDONLY);
     if (fd == -1) {
         printf("Ошибка open\n");
         exit(1);
     }
-    
-    
+
     char filedata[BUFFER_SIZE];
     read(fd, filedata, BUFFER_SIZE);
     write(pipe1[1], filedata, strlen(filedata));
@@ -55,4 +54,3 @@ int main(){
 
     return 0;
 }
-

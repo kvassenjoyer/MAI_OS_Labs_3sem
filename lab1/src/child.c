@@ -12,13 +12,11 @@ long long get_line_sum(char* line) {
     int digit_power = 1;
 
     int i = strlen(line);
-    while (i >= 0)
-    {   
-        if ((line[i] >= '0') &&  (line[i] <= '9')) {
+    while (i >= 0) {
+        if ((line[i] >= '0') && (line[i] <= '9')) {
             number += (line[i] - '0') * digit_power;
             digit_power *= 10;
-        }
-        else{
+        } else {
             if (line[i] == '-') {
                 number *= -1;
             }
@@ -32,19 +30,17 @@ long long get_line_sum(char* line) {
     if (number != 0) {
         line_sum += number;
     }
-    
+
     return line_sum;
 }
 
-
-int main(){
+int main() {
     char line[BUFFER_SIZE];
 
     while (fgets(line, BUFFER_SIZE, stdin) != NULL) {
-
         long long line_sum = get_line_sum(line);
 
-        write(STDOUT_FILENO, line, strlen(line)-1);
+        write(STDOUT_FILENO, line, strlen(line) - 1);
         printf(" -> %lld\n", line_sum);
     }
 
