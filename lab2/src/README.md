@@ -5,7 +5,7 @@
 
 ## Сборка лабы:
 ```
-gcc npsaive_pattern_search.c -o nps
+gcc nps.c -o nps
 ```
 
 ## Запуск лабы:

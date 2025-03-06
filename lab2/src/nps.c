@@ -51,7 +51,7 @@ int nps(char *str, char *substr, int max_threads) {
     size_t str_len = strlen(str);
     size_t substr_len = strlen(substr);
 
-    int chunkSize = MAX(substr_len, str_len / max_threads);
+    int chunkSize = MAX(1, str_len / max_threads);
     int used_threads = 0;
     for (int i = 0; i < max_threads; i++) {
         int start = i * chunkSize;
@@ -77,8 +77,8 @@ int nps(char *str, char *substr, int max_threads) {
         if ((threadData[i].nps_result != -1) && (threadData[i].nps_result < nps_result)) {
             nps_result = threadData[i].nps_result;
         }
-        printf("| %d\t |%d\t |%d\t |%d |\n", i, threadData[i].left, threadData[i].right,
-               threadData[i].nps_result);
+        // printf("| %d\t |%d\t |%d\t |%d |\n", i, threadData[i].left, threadData[i].right,
+        //        threadData[i].nps_result);
     }
     if (nps_result == str_len) {
         nps_result = -1;
@@ -128,7 +128,7 @@ int main(int argc, char *argv[]) {
 
     srand(time(NULL));
 
-    int custom_substr_len = 0;
+    int custom_substr_len = 100;
     int substr_len = MAX(1, MIN(str_len, custom_substr_len));
     int substr_end = substr_len + rand() % (MAX(1, str_len - substr_len));
     int substr_start = substr_end - substr_len;
@@ -145,12 +145,9 @@ int main(int argc, char *argv[]) {
         // substr[i] = (rand() % 96) + ' ';  // Подстрока может и не найтись (-1)
     }
 
-    clock_t start, end;
-    int nps_result;
-    double elapsed_time;
-
     timer_nps_launch(str, substr, max_threads);
-    printf("Результат через однопоточной strstr: %ld \n", (MAX(-1, strstr(str, substr) - str)));
+    timer_nps_launch(str, substr, MAX(1, max_threads/10));
+    printf("Результат однопоточной strstr: %ld \n", (MAX(-1, strstr(str, substr) - str)));
 
     return 0;
 }
