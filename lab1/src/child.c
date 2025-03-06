@@ -8,7 +8,6 @@ long long get_line_sum(char* line) {
     // можно и strol использовать, если быть особо ленивым
     long long line_sum = 0;
     int number = 0;
-
     int digit_power = 1;
 
     int i = strlen(line);
@@ -39,9 +38,11 @@ int main() {
 
     while (fgets(line, BUFFER_SIZE, stdin) != NULL) {
         long long line_sum = get_line_sum(line);
+        char answer[32];
+        sprintf(answer, " -> %lld\n", line_sum);
 
         write(STDOUT_FILENO, line, strlen(line) - 1);
-        printf(" -> %lld\n", line_sum);
+        write(STDOUT_FILENO, answer, strlen(answer));
     }
 
     return 0;
