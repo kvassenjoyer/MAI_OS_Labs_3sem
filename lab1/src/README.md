@@ -25,6 +25,10 @@ gcc child.c -o child
 strace -f ./parent
 ```
 
+## Отчет:
+
+[Ссылка](https://drive.google.com/file/d/1IAqj2i8FUMFisMaV1daXi0NcWlzekptR/view?usp=drive_link)
+
 ## Краткая теория:
 
 ### Процессы
