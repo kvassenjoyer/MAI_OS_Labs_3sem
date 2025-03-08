@@ -1,12 +1,12 @@
-strace -f ./nps 5                     
-execve("./nps", ["./nps", "5"], 0x7fff1d2e1410 /* 77 vars */) = 0
-brk(NULL)                               = 0x555a5577d000
-arch_prctl(0x3001 /* ARCH_??? */, 0x7ffc85dd9be0) = -1 EINVAL (Invalid argument)
-mmap(NULL, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7ff68c599000
+strace -f ./nps 5                
+execve("./nps", ["./nps", "5"], 0x7ffd67b5fb00 /* 77 vars */) = 0
+brk(NULL)                               = 0x5630db2a8000
+arch_prctl(0x3001 /* ARCH_??? */, 0x7ffc59d08bc0) = -1 EINVAL (Invalid argument)
+mmap(NULL, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f22c276f000
 access("/etc/ld.so.preload", R_OK)      = -1 ENOENT (No such file or directory)
 openat(AT_FDCWD, "/etc/ld.so.cache", O_RDONLY|O_CLOEXEC) = 3
 newfstatat(3, "", {st_mode=S_IFREG|0644, st_size=166595, ...}, AT_EMPTY_PATH) = 0
-mmap(NULL, 166595, PROT_READ, MAP_PRIVATE, 3, 0) = 0x7ff68c570000
+mmap(NULL, 166595, PROT_READ, MAP_PRIVATE, 3, 0) = 0x7f22c2746000
 close(3)                                = 0
 openat(AT_FDCWD, "/lib/x86_64-linux-gnu/libc.so.6", O_RDONLY|O_CLOEXEC) = 3
 read(3, "\177ELF\2\1\1\3\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0P\237\2\0\0\0\0\0"..., 832) = 832
@@ -15,228 +15,551 @@ pread64(3, "\4\0\0\0 \0\0\0\5\0\0\0GNU\0\2\0\0\300\4\0\0\0\3\0\0\0\0\0\0\0"..., 
 pread64(3, "\4\0\0\0\24\0\0\0\3\0\0\0GNU\0\315A\vq\17\17\tLh2\355\331Y1\0m"..., 68, 896) = 68
 newfstatat(3, "", {st_mode=S_IFREG|0755, st_size=2220400, ...}, AT_EMPTY_PATH) = 0
 pread64(3, "\6\0\0\0\4\0\0\0@\0\0\0\0\0\0\0@\0\0\0\0\0\0\0@\0\0\0\0\0\0\0"..., 784, 64) = 784
-mmap(NULL, 2264656, PROT_READ, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0x7ff68c347000
-mprotect(0x7ff68c36f000, 2023424, PROT_NONE) = 0
-mmap(0x7ff68c36f000, 1658880, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x28000) = 0x7ff68c36f000
-mmap(0x7ff68c504000, 360448, PROT_READ, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x1bd000) = 0x7ff68c504000
-mmap(0x7ff68c55d000, 24576, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x215000) = 0x7ff68c55d000
-mmap(0x7ff68c563000, 52816, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0x7ff68c563000
+mmap(NULL, 2264656, PROT_READ, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0x7f22c251d000
+mprotect(0x7f22c2545000, 2023424, PROT_NONE) = 0
+mmap(0x7f22c2545000, 1658880, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x28000) = 0x7f22c2545000
+mmap(0x7f22c26da000, 360448, PROT_READ, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x1bd000) = 0x7f22c26da000
+mmap(0x7f22c2733000, 24576, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x215000) = 0x7f22c2733000
+mmap(0x7f22c2739000, 52816, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0x7f22c2739000
 close(3)                                = 0
-mmap(NULL, 12288, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7ff68c344000
-arch_prctl(ARCH_SET_FS, 0x7ff68c344740) = 0
-set_tid_address(0x7ff68c344a10)         = 89616
-set_robust_list(0x7ff68c344a20, 24)     = 0
-rseq(0x7ff68c3450e0, 0x20, 0, 0x53053053) = 0
-mprotect(0x7ff68c55d000, 16384, PROT_READ) = 0
-mprotect(0x555a1df50000, 4096, PROT_READ) = 0
-mprotect(0x7ff68c5d3000, 8192, PROT_READ) = 0
+mmap(NULL, 12288, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f22c251a000
+arch_prctl(ARCH_SET_FS, 0x7f22c251a740) = 0
+set_tid_address(0x7f22c251aa10)         = 2255657
+set_robust_list(0x7f22c251aa20, 24)     = 0
+rseq(0x7f22c251b0e0, 0x20, 0, 0x53053053) = 0
+mprotect(0x7f22c2733000, 16384, PROT_READ) = 0
+mprotect(0x5630a26ad000, 4096, PROT_READ) = 0
+mprotect(0x7f22c27a9000, 8192, PROT_READ) = 0
 prlimit64(0, RLIMIT_STACK, NULL, {rlim_cur=8192*1024, rlim_max=RLIM64_INFINITY}) = 0
-munmap(0x7ff68c570000, 166595)          = 0
+munmap(0x7f22c2746000, 166595)          = 0
 newfstatat(1, "", {st_mode=S_IFCHR|0620, st_rdev=makedev(0x88, 0x3), ...}, AT_EMPTY_PATH) = 0
-getrandom("\x7e\x72\x98\xb4\x34\xdd\x3f\x72", 8, GRND_NONBLOCK) = 8
-brk(NULL)                               = 0x555a5577d000
-brk(0x555a5579e000)                     = 0x555a5579e000
+getrandom("\x28\x05\x5d\x30\x69\x30\x78\x9c", 8, GRND_NONBLOCK) = 8
+brk(NULL)                               = 0x5630db2a8000
+brk(0x5630db2c9000)                     = 0x5630db2c9000
 newfstatat(0, "", {st_mode=S_IFCHR|0620, st_rdev=makedev(0x88, 0x3), ...}, AT_EMPTY_PATH) = 0
 write(1, "\320\222\320\262\320\265\320\264\320\270\321\202\320\265 \320\264\320\273\320\270\320\275\321\203 \321\201\321\202\321\200"..., 40Введите длину строки: ) = 40
-read(0, 10000
-"10000\n", 1024)                = 6
+read(0, 1000
+"1000\n", 1024)                 = 5
 write(1, "\n", 1
 )                       = 1
-write(1, "\320\224\320\273\320\270\320\275\321\213 \321\201\321\202\321\200\320\276\320\272\320\270 \320\270 \320\277\320\276\320"..., 58Длины строки и подстроки: 10000 100
+write(1, "\320\224\320\273\320\270\320\275\321\213 \321\201\321\202\321\200\320\276\320\272\320\270 \320\270 \320\277\320\276\320"..., 57Длины строки и подстроки: 1000 100
 
-) = 58
-clock_gettime(CLOCK_PROCESS_CPUTIME_ID, {tv_sec=0, tv_nsec=1947566}) = 0
-rt_sigaction(SIGRT_1, {sa_handler=0x7ff68c3d8870, sa_mask=[], sa_flags=SA_RESTORER|SA_ONSTACK|SA_RESTART|SA_SIGINFO, sa_restorer=0x7ff68c389520}, NULL, 8) = 0
+) = 57
+write(1, "\320\240\320\265\320\267\321\203\320\273\321\214\321\202\320\260\321\202 \320\276\320\264\320\275\320\276\320\277\320\276\321"..., 57Результат однопоточной strstr: 76 
+
+) = 57
+clock_gettime(CLOCK_PROCESS_CPUTIME_ID, {tv_sec=0, tv_nsec=1756359}) = 0
+rt_sigaction(SIGRT_1, {sa_handler=0x7f22c25ae870, sa_mask=[], sa_flags=SA_RESTORER|SA_ONSTACK|SA_RESTART|SA_SIGINFO, sa_restorer=0x7f22c255f520}, NULL, 8) = 0
 rt_sigprocmask(SIG_UNBLOCK, [RTMIN RT_1], NULL, 8) = 0
-mmap(NULL, 8392704, PROT_NONE, MAP_PRIVATE|MAP_ANONYMOUS|MAP_STACK, -1, 0) = 0x7ff68bb43000
-mprotect(0x7ff68bb44000, 8388608, PROT_READ|PROT_WRITE) = 0
+mmap(NULL, 8392704, PROT_NONE, MAP_PRIVATE|MAP_ANONYMOUS|MAP_STACK, -1, 0) = 0x7f22c1d19000
+mprotect(0x7f22c1d1a000, 8388608, PROT_READ|PROT_WRITE) = 0
 rt_sigprocmask(SIG_BLOCK, ~[], [], 8)   = 0
-clone3({flags=CLONE_VM|CLONE_FS|CLONE_FILES|CLONE_SIGHAND|CLONE_THREAD|CLONE_SYSVSEM|CLONE_SETTLS|CLONE_PARENT_SETTID|CLONE_CHILD_CLEARTID, child_tid=0x7ff68c343910, parent_tid=0x7ff68c343910, exit_signal=0, stack=0x7ff68bb43000, stack_size=0x7fff00, tls=0x7ff68c343640}strace: Process 89685 attached
- => {parent_tid=[89685]}, 88) = 89685
-[pid 89616] rt_sigprocmask(SIG_SETMASK, [],  <unfinished ...>
-[pid 89685] rseq(0x7ff68c343fe0, 0x20, 0, 0x53053053 <unfinished ...>
-[pid 89616] <... rt_sigprocmask resumed>NULL, 8) = 0
-[pid 89685] <... rseq resumed>)         = 0
-[pid 89616] mmap(NULL, 8392704, PROT_NONE, MAP_PRIVATE|MAP_ANONYMOUS|MAP_STACK, -1, 0) = 0x7ff68b342000
-[pid 89685] set_robust_list(0x7ff68c343920, 24 <unfinished ...>
-[pid 89616] mprotect(0x7ff68b343000, 8388608, PROT_READ|PROT_WRITE <unfinished ...>
-[pid 89685] <... set_robust_list resumed>) = 0
-[pid 89685] rt_sigprocmask(SIG_SETMASK, [],  <unfinished ...>
-[pid 89616] <... mprotect resumed>)     = 0
-[pid 89685] <... rt_sigprocmask resumed>NULL, 8) = 0
-[pid 89616] rt_sigprocmask(SIG_BLOCK, ~[],  <unfinished ...>
-[pid 89685] openat(AT_FDCWD, "/etc/ld.so.cache", O_RDONLY|O_CLOEXEC <unfinished ...>
-[pid 89616] <... rt_sigprocmask resumed>[], 8) = 0
-[pid 89616] clone3({flags=CLONE_VM|CLONE_FS|CLONE_FILES|CLONE_SIGHAND|CLONE_THREAD|CLONE_SYSVSEM|CLONE_SETTLS|CLONE_PARENT_SETTID|CLONE_CHILD_CLEARTID, child_tid=0x7ff68bb42910, parent_tid=0x7ff68bb42910, exit_signal=0, stack=0x7ff68b342000, stack_size=0x7fff00, tls=0x7ff68bb42640} <unfinished ...>
-[pid 89685] <... openat resumed>)       = 3
-[pid 89685] newfstatat(3, "", strace: Process 89686 attached
- <unfinished ...>
-[pid 89616] <... clone3 resumed> => {parent_tid=[89686]}, 88) = 89686
-[pid 89685] <... newfstatat resumed>{st_mode=S_IFREG|0644, st_size=166595, ...}, AT_EMPTY_PATH) = 0
-[pid 89616] rt_sigprocmask(SIG_SETMASK, [],  <unfinished ...>
-[pid 89685] mmap(NULL, 166595, PROT_READ, MAP_PRIVATE, 3, 0 <unfinished ...>
-[pid 89616] <... rt_sigprocmask resumed>NULL, 8) = 0
-[pid 89686] rseq(0x7ff68bb42fe0, 0x20, 0, 0x53053053 <unfinished ...>
-[pid 89616] mmap(NULL, 8392704, PROT_NONE, MAP_PRIVATE|MAP_ANONYMOUS|MAP_STACK, -1, 0 <unfinished ...>
-[pid 89685] <... mmap resumed>)         = 0x7ff68c570000
-[pid 89686] <... rseq resumed>)         = 0
-[pid 89616] <... mmap resumed>)         = 0x7ff68ab41000
-[pid 89685] close(3 <unfinished ...>
-[pid 89616] mprotect(0x7ff68ab42000, 8388608, PROT_READ|PROT_WRITE <unfinished ...>
-[pid 89685] <... close resumed>)        = 0
-[pid 89686] set_robust_list(0x7ff68bb42920, 24 <unfinished ...>
-[pid 89616] <... mprotect resumed>)     = 0
-[pid 89686] <... set_robust_list resumed>) = 0
-[pid 89685] mmap(NULL, 134217728, PROT_NONE, MAP_PRIVATE|MAP_ANONYMOUS|MAP_NORESERVE, -1, 0 <unfinished ...>
-[pid 89616] futex(0x7ff68c5d5a98, FUTEX_WAIT_PRIVATE, 2, NULL <unfinished ...>
-[pid 89686] rt_sigprocmask(SIG_SETMASK, [],  <unfinished ...>
-[pid 89685] <... mmap resumed>)         = 0x7ff682b41000
-[pid 89686] <... rt_sigprocmask resumed>NULL, 8) = 0
-[pid 89685] munmap(0x7ff682b41000, 21753856 <unfinished ...>
-[pid 89686] futex(0x7ff68c5d5a48, FUTEX_WAIT_PRIVATE, 2, NULL <unfinished ...>
-[pid 89685] <... munmap resumed>)       = 0
-[pid 89685] munmap(0x7ff688000000, 45355008) = 0
-[pid 89685] mprotect(0x7ff684000000, 135168, PROT_READ|PROT_WRITE) = 0
-[pid 89685] openat(AT_FDCWD, "/lib/x86_64-linux-gnu/libgcc_s.so.1", O_RDONLY|O_CLOEXEC) = 3
-[pid 89685] read(3, "\177ELF\2\1\1\0\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0\0\0\0\0\0\0\0\0"..., 832) = 832
-[pid 89685] newfstatat(3, "", {st_mode=S_IFREG|0644, st_size=125488, ...}, AT_EMPTY_PATH) = 0
-[pid 89685] mmap(NULL, 127720, PROT_READ, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0x7ff68ab21000
-[pid 89685] mmap(0x7ff68ab24000, 94208, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x3000) = 0x7ff68ab24000
-[pid 89685] mmap(0x7ff68ab3b000, 16384, PROT_READ, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x1a000) = 0x7ff68ab3b000
-[pid 89685] mmap(0x7ff68ab3f000, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x1d000) = 0x7ff68ab3f000
-[pid 89685] close(3)                    = 0
-[pid 89685] mprotect(0x7ff68ab3f000, 4096, PROT_READ) = 0
-[pid 89685] futex(0x7ff68c5d5a98, FUTEX_WAKE_PRIVATE, 1 <unfinished ...>
-[pid 89616] <... futex resumed>)        = 0
-[pid 89685] <... futex resumed>)        = 1
-[pid 89616] futex(0x7ff68c5d5a98, FUTEX_WAKE_PRIVATE, 1 <unfinished ...>
-[pid 89685] munmap(0x7ff68c570000, 166595 <unfinished ...>
-[pid 89616] <... futex resumed>)        = 0
-[pid 89616] rt_sigprocmask(SIG_BLOCK, ~[],  <unfinished ...>
-[pid 89685] <... munmap resumed>)       = 0
-[pid 89616] <... rt_sigprocmask resumed>[], 8) = 0
-[pid 89685] futex(0x7ff68c5d5a48, FUTEX_WAKE_PRIVATE, 1 <unfinished ...>
-[pid 89616] clone3({flags=CLONE_VM|CLONE_FS|CLONE_FILES|CLONE_SIGHAND|CLONE_THREAD|CLONE_SYSVSEM|CLONE_SETTLS|CLONE_PARENT_SETTID|CLONE_CHILD_CLEARTID, child_tid=0x7ff68b341910, parent_tid=0x7ff68b341910, exit_signal=0, stack=0x7ff68ab41000, stack_size=0x7fff00, tls=0x7ff68b341640} <unfinished ...>
-[pid 89685] <... futex resumed>)        = 1
-strace: Process 89687 attached
-[pid 89686] <... futex resumed>)        = 0
-[pid 89685] futex(0x7ff68ab40210, FUTEX_WAKE_PRIVATE, 2147483647 <unfinished ...>
-[pid 89616] <... clone3 resumed> => {parent_tid=[89687]}, 88) = 89687
-[pid 89687] rseq(0x7ff68b341fe0, 0x20, 0, 0x53053053 <unfinished ...>
-[pid 89686] futex(0x7ff68c5d5a48, FUTEX_WAKE_PRIVATE, 1 <unfinished ...>
-[pid 89616] rt_sigprocmask(SIG_SETMASK, [],  <unfinished ...>
-[pid 89685] <... futex resumed>)        = 0
-[pid 89687] <... rseq resumed>)         = 0
-[pid 89686] <... futex resumed>)        = 0
-[pid 89616] <... rt_sigprocmask resumed>NULL, 8) = 0
-[pid 89687] set_robust_list(0x7ff68b341920, 24 <unfinished ...>
-[pid 89616] mmap(NULL, 8392704, PROT_NONE, MAP_PRIVATE|MAP_ANONYMOUS|MAP_STACK, -1, 0 <unfinished ...>
-[pid 89685] rt_sigprocmask(SIG_BLOCK, ~[RT_1],  <unfinished ...>
-[pid 89616] <... mmap resumed>)         = 0x7ff68a320000
-[pid 89687] <... set_robust_list resumed>) = 0
-[pid 89686] rt_sigprocmask(SIG_BLOCK, ~[RT_1],  <unfinished ...>
-[pid 89616] mprotect(0x7ff68a321000, 8388608, PROT_READ|PROT_WRITE <unfinished ...>
-[pid 89687] rt_sigprocmask(SIG_SETMASK, [],  <unfinished ...>
-[pid 89685] <... rt_sigprocmask resumed>NULL, 8) = 0
-[pid 89616] <... mprotect resumed>)     = 0
-[pid 89687] <... rt_sigprocmask resumed>NULL, 8) = 0
-[pid 89686] <... rt_sigprocmask resumed>NULL, 8) = 0
-[pid 89685] madvise(0x7ff68bb43000, 8368128, MADV_DONTNEED <unfinished ...>
-[pid 89616] rt_sigprocmask(SIG_BLOCK, ~[],  <unfinished ...>
-[pid 89686] madvise(0x7ff68b342000, 8368128, MADV_DONTNEED <unfinished ...>
-[pid 89616] <... rt_sigprocmask resumed>[], 8) = 0
-[pid 89687] rt_sigprocmask(SIG_BLOCK, ~[RT_1],  <unfinished ...>
-[pid 89685] <... madvise resumed>)      = 0
-[pid 89616] clone3({flags=CLONE_VM|CLONE_FS|CLONE_FILES|CLONE_SIGHAND|CLONE_THREAD|CLONE_SYSVSEM|CLONE_SETTLS|CLONE_PARENT_SETTID|CLONE_CHILD_CLEARTID, child_tid=0x7ff68ab20910, parent_tid=0x7ff68ab20910, exit_signal=0, stack=0x7ff68a320000, stack_size=0x7fff00, tls=0x7ff68ab20640} <unfinished ...>
-[pid 89686] <... madvise resumed>)      = 0
-[pid 89687] <... rt_sigprocmask resumed>NULL, 8) = 0
-[pid 89685] exit(0 <unfinished ...>
-[pid 89686] exit(0strace: Process 89688 attached
- <unfinished ...>
-[pid 89687] madvise(0x7ff68ab41000, 8368128, MADV_DONTNEED <unfinished ...>
-[pid 89685] <... exit resumed>)         = ?
-[pid 89616] <... clone3 resumed> => {parent_tid=[89688]}, 88) = 89688
-[pid 89688] rseq(0x7ff68ab20fe0, 0x20, 0, 0x53053053 <unfinished ...>
-[pid 89687] <... madvise resumed>)      = 0
-[pid 89686] <... exit resumed>)         = ?
-[pid 89688] <... rseq resumed>)         = 0
-[pid 89616] rt_sigprocmask(SIG_SETMASK, [],  <unfinished ...>
-[pid 89687] exit(0 <unfinished ...>
-[pid 89685] +++ exited with 0 +++
-[pid 89616] <... rt_sigprocmask resumed>NULL, 8) = 0
-[pid 89688] set_robust_list(0x7ff68ab20920, 24 <unfinished ...>
-[pid 89686] +++ exited with 0 +++
-[pid 89687] <... exit resumed>)         = ?
-[pid 89616] mmap(NULL, 8392704, PROT_NONE, MAP_PRIVATE|MAP_ANONYMOUS|MAP_STACK, -1, 0 <unfinished ...>
-[pid 89688] <... set_robust_list resumed>) = 0
-[pid 89616] <... mmap resumed>)         = 0x7ff689b1f000
-[pid 89688] rt_sigprocmask(SIG_SETMASK, [],  <unfinished ...>
-[pid 89687] +++ exited with 0 +++
-[pid 89616] mprotect(0x7ff689b20000, 8388608, PROT_READ|PROT_WRITE <unfinished ...>
-[pid 89688] <... rt_sigprocmask resumed>NULL, 8) = 0
-[pid 89616] <... mprotect resumed>)     = 0
-[pid 89616] rt_sigprocmask(SIG_BLOCK, ~[],  <unfinished ...>
-[pid 89688] rt_sigprocmask(SIG_BLOCK, ~[RT_1],  <unfinished ...>
-[pid 89616] <... rt_sigprocmask resumed>[], 8) = 0
-[pid 89688] <... rt_sigprocmask resumed>NULL, 8) = 0
-[pid 89616] clone3({flags=CLONE_VM|CLONE_FS|CLONE_FILES|CLONE_SIGHAND|CLONE_THREAD|CLONE_SYSVSEM|CLONE_SETTLS|CLONE_PARENT_SETTID|CLONE_CHILD_CLEARTID, child_tid=0x7ff68a31f910, parent_tid=0x7ff68a31f910, exit_signal=0, stack=0x7ff689b1f000, stack_size=0x7fff00, tls=0x7ff68a31f640} <unfinished ...>
-[pid 89688] madvise(0x7ff68a320000, 8368128, MADV_DONTNEED) = 0
-strace: Process 89689 attached
-[pid 89616] <... clone3 resumed> => {parent_tid=[89689]}, 88) = 89689
-[pid 89689] rseq(0x7ff68a31ffe0, 0x20, 0, 0x53053053 <unfinished ...>
-[pid 89616] rt_sigprocmask(SIG_SETMASK, [],  <unfinished ...>
-[pid 89688] exit(0 <unfinished ...>
-[pid 89616] <... rt_sigprocmask resumed>NULL, 8) = 0
-[pid 89689] <... rseq resumed>)         = 0
-[pid 89688] <... exit resumed>)         = ?
-[pid 89616] futex(0x7ff68ab20910, FUTEX_WAIT_BITSET|FUTEX_CLOCK_REALTIME, 89688, NULL, FUTEX_BITSET_MATCH_ANY <unfinished ...>
-[pid 89689] set_robust_list(0x7ff68a31f920, 24 <unfinished ...>
-[pid 89616] <... futex resumed>)        = -1 EAGAIN (Resource temporarily unavailable)
-[pid 89689] <... set_robust_list resumed>) = 0
-[pid 89688] +++ exited with 0 +++
-[pid 89616] futex(0x7ff68a31f910, FUTEX_WAIT_BITSET|FUTEX_CLOCK_REALTIME, 89689, NULL, FUTEX_BITSET_MATCH_ANY <unfinished ...>
-[pid 89689] rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
-[pid 89689] rt_sigprocmask(SIG_BLOCK, ~[RT_1], NULL, 8) = 0
-[pid 89689] madvise(0x7ff689b1f000, 8368128, MADV_DONTNEED) = 0
-[pid 89689] exit(0)                     = ?
-[pid 89616] <... futex resumed>)        = 0
-[pid 89689] +++ exited with 0 +++
-munmap(0x7ff68bb43000, 8392704)         = 0
-clock_gettime(CLOCK_PROCESS_CPUTIME_ID, {tv_sec=0, tv_nsec=4061977}) = 0
-write(1, "\320\237\320\276\320\264\321\201\321\202\321\200\320\276\320\272\320\260 \320\262\320\277\320\265\321\200\320\262\321\213\320"..., 83Подстрока впервые встречается на индексе: 7773
-) = 83
-write(1, "\320\222\321\200\320\265\320\274\321\217 \320\267\320\260\321\202\321\200\320\260\321\207\320\265\320\275\320\275\320\276\320"..., 92Время затраченное на поиск подстроки: 0.002114 секунд
+clone3({flags=CLONE_VM|CLONE_FS|CLONE_FILES|CLONE_SIGHAND|CLONE_THREAD|CLONE_SYSVSEM|CLONE_SETTLS|CLONE_PARENT_SETTID|CLONE_CHILD_CLEARTID, child_tid=0x7f22c2519910, parent_tid=0x7f22c2519910, exit_signal=0, stack=0x7f22c1d19000, stack_size=0x7fff00, tls=0x7f22c2519640}strace: Process 2255696 attached
+ => {parent_tid=[2255696]}, 88) = 2255696
+[pid 2255696] rseq(0x7f22c2519fe0, 0x20, 0, 0x53053053 <unfinished ...>
+[pid 2255657] rt_sigprocmask(SIG_SETMASK, [],  <unfinished ...>
+[pid 2255696] <... rseq resumed>)       = 0
+[pid 2255657] <... rt_sigprocmask resumed>NULL, 8) = 0
+[pid 2255696] set_robust_list(0x7f22c2519920, 24) = 0
+[pid 2255657] mmap(NULL, 8392704, PROT_NONE, MAP_PRIVATE|MAP_ANONYMOUS|MAP_STACK, -1, 0 <unfinished ...>
+[pid 2255696] rt_sigprocmask(SIG_SETMASK, [],  <unfinished ...>
+[pid 2255657] <... mmap resumed>)       = 0x7f22c1518000
+[pid 2255696] <... rt_sigprocmask resumed>NULL, 8) = 0
+[pid 2255657] mprotect(0x7f22c1519000, 8388608, PROT_READ|PROT_WRITE <unfinished ...>
+[pid 2255696] futex(0x5630a26ae0b0, FUTEX_WAIT_BITSET_PRIVATE|FUTEX_CLOCK_REALTIME, 0, NULL, FUTEX_BITSET_MATCH_ANY <unfinished ...>
+[pid 2255657] <... mprotect resumed>)   = 0
+[pid 2255657] rt_sigprocmask(SIG_BLOCK, ~[], [], 8) = 0
+[pid 2255657] clone3({flags=CLONE_VM|CLONE_FS|CLONE_FILES|CLONE_SIGHAND|CLONE_THREAD|CLONE_SYSVSEM|CLONE_SETTLS|CLONE_PARENT_SETTID|CLONE_CHILD_CLEARTID, child_tid=0x7f22c1d18910, parent_tid=0x7f22c1d18910, exit_signal=0, stack=0x7f22c1518000, stack_size=0x7fff00, tls=0x7f22c1d18640}strace: Process 2255697 attached
+ => {parent_tid=[2255697]}, 88) = 2255697
+[pid 2255697] rseq(0x7f22c1d18fe0, 0x20, 0, 0x53053053 <unfinished ...>
+[pid 2255657] rt_sigprocmask(SIG_SETMASK, [],  <unfinished ...>
+[pid 2255697] <... rseq resumed>)       = 0
+[pid 2255657] <... rt_sigprocmask resumed>NULL, 8) = 0
+[pid 2255657] mmap(NULL, 8392704, PROT_NONE, MAP_PRIVATE|MAP_ANONYMOUS|MAP_STACK, -1, 0 <unfinished ...>
+[pid 2255697] set_robust_list(0x7f22c1d18920, 24 <unfinished ...>
+[pid 2255657] <... mmap resumed>)       = 0x7f22c0d17000
+[pid 2255697] <... set_robust_list resumed>) = 0
+[pid 2255657] mprotect(0x7f22c0d18000, 8388608, PROT_READ|PROT_WRITE <unfinished ...>
+[pid 2255697] rt_sigprocmask(SIG_SETMASK, [],  <unfinished ...>
+[pid 2255657] <... mprotect resumed>)   = 0
+[pid 2255697] <... rt_sigprocmask resumed>NULL, 8) = 0
+[pid 2255657] rt_sigprocmask(SIG_BLOCK, ~[],  <unfinished ...>
+[pid 2255697] futex(0x5630a26ae0b0, FUTEX_WAIT_BITSET_PRIVATE|FUTEX_CLOCK_REALTIME, 0, NULL, FUTEX_BITSET_MATCH_ANY <unfinished ...>
+[pid 2255657] <... rt_sigprocmask resumed>[], 8) = 0
+[pid 2255657] clone3({flags=CLONE_VM|CLONE_FS|CLONE_FILES|CLONE_SIGHAND|CLONE_THREAD|CLONE_SYSVSEM|CLONE_SETTLS|CLONE_PARENT_SETTID|CLONE_CHILD_CLEARTID, child_tid=0x7f22c1517910, parent_tid=0x7f22c1517910, exit_signal=0, stack=0x7f22c0d17000, stack_size=0x7fff00, tls=0x7f22c1517640}strace: Process 2255698 attached
+ => {parent_tid=[2255698]}, 88) = 2255698
+[pid 2255698] rseq(0x7f22c1517fe0, 0x20, 0, 0x53053053 <unfinished ...>
+[pid 2255657] rt_sigprocmask(SIG_SETMASK, [],  <unfinished ...>
+[pid 2255698] <... rseq resumed>)       = 0
+[pid 2255657] <... rt_sigprocmask resumed>NULL, 8) = 0
+[pid 2255657] mmap(NULL, 8392704, PROT_NONE, MAP_PRIVATE|MAP_ANONYMOUS|MAP_STACK, -1, 0 <unfinished ...>
+[pid 2255698] set_robust_list(0x7f22c1517920, 24 <unfinished ...>
+[pid 2255657] <... mmap resumed>)       = 0x7f22c0516000
+[pid 2255698] <... set_robust_list resumed>) = 0
+[pid 2255657] mprotect(0x7f22c0517000, 8388608, PROT_READ|PROT_WRITE <unfinished ...>
+[pid 2255698] rt_sigprocmask(SIG_SETMASK, [],  <unfinished ...>
+[pid 2255657] <... mprotect resumed>)   = 0
+[pid 2255698] <... rt_sigprocmask resumed>NULL, 8) = 0
+[pid 2255657] rt_sigprocmask(SIG_BLOCK, ~[],  <unfinished ...>
+[pid 2255698] futex(0x5630a26ae0b0, FUTEX_WAIT_BITSET_PRIVATE|FUTEX_CLOCK_REALTIME, 0, NULL, FUTEX_BITSET_MATCH_ANY <unfinished ...>
+[pid 2255657] <... rt_sigprocmask resumed>[], 8) = 0
+[pid 2255657] clone3({flags=CLONE_VM|CLONE_FS|CLONE_FILES|CLONE_SIGHAND|CLONE_THREAD|CLONE_SYSVSEM|CLONE_SETTLS|CLONE_PARENT_SETTID|CLONE_CHILD_CLEARTID, child_tid=0x7f22c0d16910, parent_tid=0x7f22c0d16910, exit_signal=0, stack=0x7f22c0516000, stack_size=0x7fff00, tls=0x7f22c0d16640}strace: Process 2255699 attached
+ => {parent_tid=[2255699]}, 88) = 2255699
+[pid 2255699] rseq(0x7f22c0d16fe0, 0x20, 0, 0x53053053 <unfinished ...>
+[pid 2255657] rt_sigprocmask(SIG_SETMASK, [],  <unfinished ...>
+[pid 2255699] <... rseq resumed>)       = 0
+[pid 2255657] <... rt_sigprocmask resumed>NULL, 8) = 0
+[pid 2255699] set_robust_list(0x7f22c0d16920, 24 <unfinished ...>
+[pid 2255657] mmap(NULL, 8392704, PROT_NONE, MAP_PRIVATE|MAP_ANONYMOUS|MAP_STACK, -1, 0 <unfinished ...>
+[pid 2255699] <... set_robust_list resumed>) = 0
+[pid 2255657] <... mmap resumed>)       = 0x7f22bfd15000
+[pid 2255699] rt_sigprocmask(SIG_SETMASK, [],  <unfinished ...>
+[pid 2255657] mprotect(0x7f22bfd16000, 8388608, PROT_READ|PROT_WRITE <unfinished ...>
+[pid 2255699] <... rt_sigprocmask resumed>NULL, 8) = 0
+[pid 2255657] <... mprotect resumed>)   = 0
+[pid 2255699] futex(0x5630a26ae0b0, FUTEX_WAIT_BITSET_PRIVATE|FUTEX_CLOCK_REALTIME, 0, NULL, FUTEX_BITSET_MATCH_ANY <unfinished ...>
+[pid 2255657] rt_sigprocmask(SIG_BLOCK, ~[], [], 8) = 0
+[pid 2255657] clone3({flags=CLONE_VM|CLONE_FS|CLONE_FILES|CLONE_SIGHAND|CLONE_THREAD|CLONE_SYSVSEM|CLONE_SETTLS|CLONE_PARENT_SETTID|CLONE_CHILD_CLEARTID, child_tid=0x7f22c0515910, parent_tid=0x7f22c0515910, exit_signal=0, stack=0x7f22bfd15000, stack_size=0x7fff00, tls=0x7f22c0515640}strace: Process 2255700 attached
+ => {parent_tid=[2255700]}, 88) = 2255700
+[pid 2255700] rseq(0x7f22c0515fe0, 0x20, 0, 0x53053053 <unfinished ...>
+[pid 2255657] rt_sigprocmask(SIG_SETMASK, [],  <unfinished ...>
+[pid 2255700] <... rseq resumed>)       = 0
+[pid 2255657] <... rt_sigprocmask resumed>NULL, 8) = 0
+[pid 2255700] set_robust_list(0x7f22c0515920, 24 <unfinished ...>
+[pid 2255657] futex(0x7f22c2519910, FUTEX_WAIT_BITSET|FUTEX_CLOCK_REALTIME, 2255696, NULL, FUTEX_BITSET_MATCH_ANY <unfinished ...>
+[pid 2255700] <... set_robust_list resumed>) = 0
+[pid 2255700] rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+[pid 2255700] futex(0x5630a26ae0b0, FUTEX_WAKE_PRIVATE, 2147483647) = 4
+[pid 2255699] <... futex resumed>)      = 0
+[pid 2255697] <... futex resumed>)      = 0
+[pid 2255696] <... futex resumed>)      = 0
+[pid 2255700] futex(0x5630a26ae0b4, FUTEX_WAIT_BITSET_PRIVATE|FUTEX_CLOCK_REALTIME, 0, NULL, FUTEX_BITSET_MATCH_ANY <unfinished ...>
+[pid 2255699] futex(0x5630a26ae060, FUTEX_WAKE_PRIVATE, 1 <unfinished ...>
+[pid 2255697] futex(0x5630a26ae060, FUTEX_WAKE_PRIVATE, 1 <unfinished ...>
+[pid 2255699] <... futex resumed>)      = 0
+[pid 2255696] futex(0x5630a26ae060, FUTEX_WAKE_PRIVATE, 1 <unfinished ...>
+[pid 2255699] futex(0x5630a26ae0b4, FUTEX_WAIT_BITSET_PRIVATE|FUTEX_CLOCK_REALTIME, 0, NULL, FUTEX_BITSET_MATCH_ANY <unfinished ...>
+[pid 2255697] <... futex resumed>)      = 0
+[pid 2255696] <... futex resumed>)      = 0
+[pid 2255697] futex(0x5630a26ae0b4, FUTEX_WAIT_BITSET_PRIVATE|FUTEX_CLOCK_REALTIME, 0, NULL, FUTEX_BITSET_MATCH_ANY <unfinished ...>
+[pid 2255696] futex(0x5630a26ae0b4, FUTEX_WAIT_BITSET_PRIVATE|FUTEX_CLOCK_REALTIME, 0, NULL, FUTEX_BITSET_MATCH_ANY <unfinished ...>
+[pid 2255698] <... futex resumed>)      = 0
+[pid 2255698] futex(0x5630a26ae060, FUTEX_WAKE_PRIVATE, 1) = 0
+[pid 2255698] futex(0x5630a26ae0b4, FUTEX_WAKE_PRIVATE, 2147483647 <unfinished ...>
+[pid 2255700] <... futex resumed>)      = 0
+[pid 2255699] <... futex resumed>)      = 0
+[pid 2255698] <... futex resumed>)      = 4
+[pid 2255697] <... futex resumed>)      = 0
+[pid 2255696] <... futex resumed>)      = 0
+[pid 2255700] futex(0x5630a26ae060, FUTEX_WAIT_PRIVATE, 2, NULL <unfinished ...>
+[pid 2255699] futex(0x5630a26ae060, FUTEX_WAIT_PRIVATE, 2, NULL <unfinished ...>
+[pid 2255697] futex(0x5630a26ae060, FUTEX_WAIT_PRIVATE, 2, NULL <unfinished ...>
+[pid 2255700] <... futex resumed>)      = -1 EAGAIN (Resource temporarily unavailable)
+[pid 2255699] <... futex resumed>)      = -1 EAGAIN (Resource temporarily unavailable)
+[pid 2255698] futex(0x5630a26ae060, FUTEX_WAKE_PRIVATE, 1 <unfinished ...>
+[pid 2255696] futex(0x5630a26ae060, FUTEX_WAKE_PRIVATE, 1 <unfinished ...>
+[pid 2255700] futex(0x5630a26ae060, FUTEX_WAKE_PRIVATE, 1 <unfinished ...>
+[pid 2255699] futex(0x5630a26ae060, FUTEX_WAKE_PRIVATE, 1 <unfinished ...>
+[pid 2255698] <... futex resumed>)      = 0
+[pid 2255697] <... futex resumed>)      = -1 EAGAIN (Resource temporarily unavailable)
+[pid 2255700] <... futex resumed>)      = 0
+[pid 2255699] <... futex resumed>)      = 0
+[pid 2255696] <... futex resumed>)      = 0
+[pid 2255698] futex(0x5630a26ae0b0, FUTEX_WAIT_BITSET_PRIVATE|FUTEX_CLOCK_REALTIME, 0, NULL, FUTEX_BITSET_MATCH_ANY <unfinished ...>
+[pid 2255697] futex(0x5630a26ae060, FUTEX_WAKE_PRIVATE, 1 <unfinished ...>
+[pid 2255700] futex(0x5630a26ae0b0, FUTEX_WAIT_BITSET_PRIVATE|FUTEX_CLOCK_REALTIME, 0, NULL, FUTEX_BITSET_MATCH_ANY <unfinished ...>
+[pid 2255699] futex(0x5630a26ae0b0, FUTEX_WAIT_BITSET_PRIVATE|FUTEX_CLOCK_REALTIME, 0, NULL, FUTEX_BITSET_MATCH_ANY <unfinished ...>
+[pid 2255696] futex(0x5630a26ae0b0, FUTEX_WAIT_BITSET_PRIVATE|FUTEX_CLOCK_REALTIME, 0, NULL, FUTEX_BITSET_MATCH_ANY <unfinished ...>
+[pid 2255697] <... futex resumed>)      = 0
+[pid 2255697] futex(0x5630a26ae0b0, FUTEX_WAKE_PRIVATE, 2147483647 <unfinished ...>
+[pid 2255699] <... futex resumed>)      = 0
+[pid 2255698] <... futex resumed>)      = 0
+[pid 2255697] <... futex resumed>)      = 4
+[pid 2255699] futex(0x5630a26ae060, FUTEX_WAIT_PRIVATE, 2, NULL <unfinished ...>
+[pid 2255698] futex(0x5630a26ae060, FUTEX_WAIT_PRIVATE, 2, NULL <unfinished ...>
+[pid 2255696] <... futex resumed>)      = 0
+[pid 2255699] <... futex resumed>)      = -1 EAGAIN (Resource temporarily unavailable)
+[pid 2255697] futex(0x5630a26ae060, FUTEX_WAKE_PRIVATE, 1 <unfinished ...>
+[pid 2255698] <... futex resumed>)      = -1 EAGAIN (Resource temporarily unavailable)
+[pid 2255696] futex(0x5630a26ae060, FUTEX_WAKE_PRIVATE, 1 <unfinished ...>
+[pid 2255699] futex(0x5630a26ae060, FUTEX_WAKE_PRIVATE, 1 <unfinished ...>
+[pid 2255697] <... futex resumed>)      = 0
+[pid 2255698] futex(0x5630a26ae060, FUTEX_WAKE_PRIVATE, 1 <unfinished ...>
+[pid 2255696] <... futex resumed>)      = 0
+[pid 2255699] <... futex resumed>)      = 0
+[pid 2255697] futex(0x5630a26ae0b4, FUTEX_WAIT_BITSET_PRIVATE|FUTEX_CLOCK_REALTIME, 0, NULL, FUTEX_BITSET_MATCH_ANY <unfinished ...>
+[pid 2255698] <... futex resumed>)      = 0
+[pid 2255696] futex(0x5630a26ae0b4, FUTEX_WAIT_BITSET_PRIVATE|FUTEX_CLOCK_REALTIME, 0, NULL, FUTEX_BITSET_MATCH_ANY <unfinished ...>
+[pid 2255699] futex(0x5630a26ae0b4, FUTEX_WAIT_BITSET_PRIVATE|FUTEX_CLOCK_REALTIME, 0, NULL, FUTEX_BITSET_MATCH_ANY <unfinished ...>
+[pid 2255698] futex(0x5630a26ae0b4, FUTEX_WAIT_BITSET_PRIVATE|FUTEX_CLOCK_REALTIME, 0, NULL, FUTEX_BITSET_MATCH_ANY <unfinished ...>
+[pid 2255700] <... futex resumed>)      = 0
+[pid 2255700] futex(0x5630a26ae060, FUTEX_WAKE_PRIVATE, 1) = 0
+[pid 2255700] futex(0x5630a26ae0b4, FUTEX_WAKE_PRIVATE, 2147483647) = 4
+[pid 2255699] <... futex resumed>)      = 0
+[pid 2255696] <... futex resumed>)      = 0
+[pid 2255698] <... futex resumed>)      = 0
+[pid 2255700] futex(0x5630a26ae0b0, FUTEX_WAIT_BITSET_PRIVATE|FUTEX_CLOCK_REALTIME, 0, NULL, FUTEX_BITSET_MATCH_ANY <unfinished ...>
+[pid 2255699] futex(0x5630a26ae060, FUTEX_WAKE_PRIVATE, 1 <unfinished ...>
+[pid 2255696] futex(0x5630a26ae060, FUTEX_WAKE_PRIVATE, 1 <unfinished ...>
+[pid 2255698] futex(0x5630a26ae060, FUTEX_WAKE_PRIVATE, 1 <unfinished ...>
+[pid 2255699] <... futex resumed>)      = 0
+[pid 2255696] <... futex resumed>)      = 0
+[pid 2255698] <... futex resumed>)      = 0
+[pid 2255699] futex(0x5630a26ae0b0, FUTEX_WAIT_BITSET_PRIVATE|FUTEX_CLOCK_REALTIME, 0, NULL, FUTEX_BITSET_MATCH_ANY <unfinished ...>
+[pid 2255696] futex(0x5630a26ae0b0, FUTEX_WAIT_BITSET_PRIVATE|FUTEX_CLOCK_REALTIME, 0, NULL, FUTEX_BITSET_MATCH_ANY <unfinished ...>
+[pid 2255698] futex(0x5630a26ae0b0, FUTEX_WAIT_BITSET_PRIVATE|FUTEX_CLOCK_REALTIME, 0, NULL, FUTEX_BITSET_MATCH_ANY <unfinished ...>
+[pid 2255697] <... futex resumed>)      = 0
+[pid 2255697] futex(0x5630a26ae060, FUTEX_WAKE_PRIVATE, 1) = 0
+[pid 2255697] futex(0x5630a26ae0b0, FUTEX_WAKE_PRIVATE, 2147483647 <unfinished ...>
+[pid 2255700] <... futex resumed>)      = 0
+[pid 2255698] <... futex resumed>)      = 0
+[pid 2255697] <... futex resumed>)      = 4
+[pid 2255696] <... futex resumed>)      = 0
+[pid 2255700] futex(0x5630a26ae060, FUTEX_WAIT_PRIVATE, 2, NULL <unfinished ...>
+[pid 2255697] futex(0x5630a26ae060, FUTEX_WAKE_PRIVATE, 1 <unfinished ...>
+[pid 2255698] futex(0x5630a26ae060, FUTEX_WAKE_PRIVATE, 1 <unfinished ...>
+[pid 2255696] futex(0x5630a26ae060, FUTEX_WAKE_PRIVATE, 1 <unfinished ...>
+[pid 2255700] <... futex resumed>)      = -1 EAGAIN (Resource temporarily unavailable)
+[pid 2255697] <... futex resumed>)      = 0
+[pid 2255698] <... futex resumed>)      = 0
+[pid 2255696] <... futex resumed>)      = 0
+[pid 2255700] futex(0x5630a26ae060, FUTEX_WAKE_PRIVATE, 1 <unfinished ...>
+[pid 2255698] futex(0x5630a26ae0b4, FUTEX_WAIT_BITSET_PRIVATE|FUTEX_CLOCK_REALTIME, 0, NULL, FUTEX_BITSET_MATCH_ANY <unfinished ...>
+[pid 2255697] futex(0x5630a26ae0b4, FUTEX_WAIT_BITSET_PRIVATE|FUTEX_CLOCK_REALTIME, 0, NULL, FUTEX_BITSET_MATCH_ANY <unfinished ...>
+[pid 2255700] <... futex resumed>)      = 0
+[pid 2255696] futex(0x5630a26ae0b4, FUTEX_WAIT_BITSET_PRIVATE|FUTEX_CLOCK_REALTIME, 0, NULL, FUTEX_BITSET_MATCH_ANY <unfinished ...>
+[pid 2255700] futex(0x5630a26ae0b4, FUTEX_WAIT_BITSET_PRIVATE|FUTEX_CLOCK_REALTIME, 0, NULL, FUTEX_BITSET_MATCH_ANY <unfinished ...>
+[pid 2255699] <... futex resumed>)      = 0
+[pid 2255699] futex(0x5630a26ae060, FUTEX_WAKE_PRIVATE, 1) = 0
+[pid 2255699] futex(0x5630a26ae0b4, FUTEX_WAKE_PRIVATE, 2147483647 <unfinished ...>
+[pid 2255700] <... futex resumed>)      = 0
+[pid 2255699] <... futex resumed>)      = 4
+[pid 2255698] <... futex resumed>)      = 0
+[pid 2255697] <... futex resumed>)      = 0
+[pid 2255696] <... futex resumed>)      = 0
+[pid 2255700] futex(0x5630a26ae060, FUTEX_WAIT_PRIVATE, 2, NULL <unfinished ...>
+[pid 2255699] futex(0x5630a26ae060, FUTEX_WAKE_PRIVATE, 1 <unfinished ...>
+[pid 2255698] futex(0x5630a26ae060, FUTEX_WAIT_PRIVATE, 2, NULL <unfinished ...>
+[pid 2255697] futex(0x5630a26ae060, FUTEX_WAKE_PRIVATE, 1 <unfinished ...>
+[pid 2255700] <... futex resumed>)      = -1 EAGAIN (Resource temporarily unavailable)
+[pid 2255699] <... futex resumed>)      = 0
+[pid 2255698] <... futex resumed>)      = -1 EAGAIN (Resource temporarily unavailable)
+[pid 2255696] futex(0x5630a26ae060, FUTEX_WAKE_PRIVATE, 1 <unfinished ...>
+[pid 2255700] futex(0x5630a26ae060, FUTEX_WAKE_PRIVATE, 1 <unfinished ...>
+[pid 2255699] futex(0x5630a26ae0b0, FUTEX_WAIT_BITSET_PRIVATE|FUTEX_CLOCK_REALTIME, 0, NULL, FUTEX_BITSET_MATCH_ANY <unfinished ...>
+[pid 2255698] futex(0x5630a26ae060, FUTEX_WAKE_PRIVATE, 1 <unfinished ...>
+[pid 2255697] <... futex resumed>)      = 0
+[pid 2255700] <... futex resumed>)      = 0
+[pid 2255696] <... futex resumed>)      = 0
+[pid 2255698] <... futex resumed>)      = 0
+[pid 2255697] futex(0x5630a26ae0b0, FUTEX_WAIT_BITSET_PRIVATE|FUTEX_CLOCK_REALTIME, 0, NULL, FUTEX_BITSET_MATCH_ANY <unfinished ...>
+[pid 2255700] futex(0x5630a26ae0b0, FUTEX_WAIT_BITSET_PRIVATE|FUTEX_CLOCK_REALTIME, 0, NULL, FUTEX_BITSET_MATCH_ANY <unfinished ...>
+[pid 2255696] futex(0x5630a26ae0b0, FUTEX_WAIT_BITSET_PRIVATE|FUTEX_CLOCK_REALTIME, 0, NULL, FUTEX_BITSET_MATCH_ANY <unfinished ...>
+[pid 2255700] <... futex resumed>)      = -1 EAGAIN (Resource temporarily unavailable)
+[pid 2255698] futex(0x5630a26ae0b0, FUTEX_WAKE_PRIVATE, 2147483647 <unfinished ...>
+[pid 2255696] <... futex resumed>)      = -1 EAGAIN (Resource temporarily unavailable)
+[pid 2255700] futex(0x5630a26ae060, FUTEX_WAIT_PRIVATE, 2, NULL <unfinished ...>
+[pid 2255698] <... futex resumed>)      = 2
+[pid 2255697] <... futex resumed>)      = 0
+[pid 2255699] <... futex resumed>)      = 0
+[pid 2255698] futex(0x5630a26ae060, FUTEX_WAKE_PRIVATE, 1 <unfinished ...>
+[pid 2255697] futex(0x5630a26ae060, FUTEX_WAKE_PRIVATE, 1 <unfinished ...>
+[pid 2255696] futex(0x5630a26ae060, FUTEX_WAIT_PRIVATE, 2, NULL <unfinished ...>
+[pid 2255699] futex(0x5630a26ae060, FUTEX_WAKE_PRIVATE, 1 <unfinished ...>
+[pid 2255698] <... futex resumed>)      = 1
+[pid 2255700] <... futex resumed>)      = 0
+[pid 2255699] <... futex resumed>)      = 0
+[pid 2255697] <... futex resumed>)      = 0
+[pid 2255696] <... futex resumed>)      = -1 EAGAIN (Resource temporarily unavailable)
+[pid 2255700] futex(0x5630a26ae060, FUTEX_WAKE_PRIVATE, 1 <unfinished ...>
+[pid 2255699] futex(0x5630a26ae0b4, FUTEX_WAIT_BITSET_PRIVATE|FUTEX_CLOCK_REALTIME, 0, NULL, FUTEX_BITSET_MATCH_ANY <unfinished ...>
+[pid 2255698] futex(0x5630a26ae0b4, FUTEX_WAIT_BITSET_PRIVATE|FUTEX_CLOCK_REALTIME, 0, NULL, FUTEX_BITSET_MATCH_ANY <unfinished ...>
+[pid 2255697] futex(0x5630a26ae0b4, FUTEX_WAIT_BITSET_PRIVATE|FUTEX_CLOCK_REALTIME, 0, NULL, FUTEX_BITSET_MATCH_ANY <unfinished ...>
+[pid 2255696] futex(0x5630a26ae060, FUTEX_WAKE_PRIVATE, 1 <unfinished ...>
+[pid 2255700] <... futex resumed>)      = 0
+[pid 2255696] <... futex resumed>)      = 0
+[pid 2255700] futex(0x5630a26ae0b4, FUTEX_WAIT_BITSET_PRIVATE|FUTEX_CLOCK_REALTIME, 0, NULL, FUTEX_BITSET_MATCH_ANY <unfinished ...>
+[pid 2255696] futex(0x5630a26ae0b4, FUTEX_WAKE_PRIVATE, 2147483647 <unfinished ...>
+[pid 2255700] <... futex resumed>)      = -1 EAGAIN (Resource temporarily unavailable)
+[pid 2255699] <... futex resumed>)      = 0
+[pid 2255698] <... futex resumed>)      = 0
+[pid 2255697] <... futex resumed>)      = 0
+[pid 2255696] <... futex resumed>)      = 3
+[pid 2255700] futex(0x5630a26ae060, FUTEX_WAIT_PRIVATE, 2, NULL <unfinished ...>
+[pid 2255699] futex(0x5630a26ae060, FUTEX_WAIT_PRIVATE, 2, NULL <unfinished ...>
+[pid 2255698] futex(0x5630a26ae060, FUTEX_WAIT_PRIVATE, 2, NULL <unfinished ...>
+[pid 2255697] futex(0x5630a26ae060, FUTEX_WAIT_PRIVATE, 2, NULL <unfinished ...>
+[pid 2255696] futex(0x5630a26ae060, FUTEX_WAKE_PRIVATE, 1 <unfinished ...>
+[pid 2255700] <... futex resumed>)      = -1 EAGAIN (Resource temporarily unavailable)
+[pid 2255699] <... futex resumed>)      = -1 EAGAIN (Resource temporarily unavailable)
+[pid 2255698] <... futex resumed>)      = -1 EAGAIN (Resource temporarily unavailable)
+[pid 2255697] <... futex resumed>)      = -1 EAGAIN (Resource temporarily unavailable)
+[pid 2255700] futex(0x5630a26ae060, FUTEX_WAKE_PRIVATE, 1 <unfinished ...>
+[pid 2255699] futex(0x5630a26ae060, FUTEX_WAKE_PRIVATE, 1 <unfinished ...>
+[pid 2255696] <... futex resumed>)      = 0
+[pid 2255700] <... futex resumed>)      = 0
+[pid 2255699] <... futex resumed>)      = 0
+[pid 2255698] futex(0x5630a26ae060, FUTEX_WAKE_PRIVATE, 1 <unfinished ...>
+[pid 2255697] futex(0x5630a26ae060, FUTEX_WAKE_PRIVATE, 1 <unfinished ...>
+[pid 2255700] futex(0x5630a26ae0b0, FUTEX_WAIT_BITSET_PRIVATE|FUTEX_CLOCK_REALTIME, 0, NULL, FUTEX_BITSET_MATCH_ANY <unfinished ...>
+[pid 2255699] futex(0x5630a26ae0b0, FUTEX_WAIT_BITSET_PRIVATE|FUTEX_CLOCK_REALTIME, 0, NULL, FUTEX_BITSET_MATCH_ANY <unfinished ...>
+[pid 2255696] futex(0x5630a26ae0b0, FUTEX_WAIT_BITSET_PRIVATE|FUTEX_CLOCK_REALTIME, 0, NULL, FUTEX_BITSET_MATCH_ANY <unfinished ...>
+[pid 2255698] <... futex resumed>)      = 0
+[pid 2255697] <... futex resumed>)      = 0
+[pid 2255698] futex(0x5630a26ae0b0, FUTEX_WAIT_BITSET_PRIVATE|FUTEX_CLOCK_REALTIME, 0, NULL, FUTEX_BITSET_MATCH_ANY <unfinished ...>
+[pid 2255697] futex(0x5630a26ae0b0, FUTEX_WAKE_PRIVATE, 2147483647 <unfinished ...>
+[pid 2255698] <... futex resumed>)      = -1 EAGAIN (Resource temporarily unavailable)
+[pid 2255699] <... futex resumed>)      = 0
+[pid 2255697] <... futex resumed>)      = 3
+[pid 2255696] <... futex resumed>)      = 0
+[pid 2255700] <... futex resumed>)      = 0
+[pid 2255699] futex(0x5630a26ae060, FUTEX_WAIT_PRIVATE, 2, NULL <unfinished ...>
+[pid 2255698] futex(0x5630a26ae060, FUTEX_WAIT_PRIVATE, 2, NULL <unfinished ...>
+[pid 2255697] futex(0x5630a26ae060, FUTEX_WAKE_PRIVATE, 1 <unfinished ...>
+[pid 2255700] futex(0x5630a26ae060, FUTEX_WAKE_PRIVATE, 1 <unfinished ...>
+[pid 2255699] <... futex resumed>)      = -1 EAGAIN (Resource temporarily unavailable)
+[pid 2255696] futex(0x5630a26ae060, FUTEX_WAKE_PRIVATE, 1 <unfinished ...>
+[pid 2255700] <... futex resumed>)      = 0
+[pid 2255698] <... futex resumed>)      = -1 EAGAIN (Resource temporarily unavailable)
+[pid 2255697] <... futex resumed>)      = 0
+[pid 2255700] futex(0x5630a26ae0b4, FUTEX_WAIT_BITSET_PRIVATE|FUTEX_CLOCK_REALTIME, 0, NULL, FUTEX_BITSET_MATCH_ANY <unfinished ...>
+[pid 2255699] futex(0x5630a26ae060, FUTEX_WAKE_PRIVATE, 1 <unfinished ...>
+[pid 2255698] futex(0x5630a26ae060, FUTEX_WAKE_PRIVATE, 1 <unfinished ...>
+[pid 2255696] <... futex resumed>)      = 0
+[pid 2255699] <... futex resumed>)      = 0
+[pid 2255697] futex(0x5630a26ae0b4, FUTEX_WAIT_BITSET_PRIVATE|FUTEX_CLOCK_REALTIME, 0, NULL, FUTEX_BITSET_MATCH_ANY <unfinished ...>
+[pid 2255698] <... futex resumed>)      = 0
+[pid 2255696] futex(0x5630a26ae0b4, FUTEX_WAIT_BITSET_PRIVATE|FUTEX_CLOCK_REALTIME, 0, NULL, FUTEX_BITSET_MATCH_ANY <unfinished ...>
+[pid 2255699] futex(0x5630a26ae0b4, FUTEX_WAIT_BITSET_PRIVATE|FUTEX_CLOCK_REALTIME, 0, NULL, FUTEX_BITSET_MATCH_ANY <unfinished ...>
+[pid 2255698] futex(0x5630a26ae0b4, FUTEX_WAKE_PRIVATE, 2147483647 <unfinished ...>
+[pid 2255699] <... futex resumed>)      = -1 EAGAIN (Resource temporarily unavailable)
+[pid 2255696] <... futex resumed>)      = -1 EAGAIN (Resource temporarily unavailable)
+[pid 2255700] <... futex resumed>)      = 0
+[pid 2255699] futex(0x5630a26ae060, FUTEX_WAIT_PRIVATE, 2, NULL <unfinished ...>
+[pid 2255698] <... futex resumed>)      = 2
+[pid 2255697] <... futex resumed>)      = 0
+[pid 2255700] futex(0x5630a26ae060, FUTEX_WAIT_PRIVATE, 2, NULL <unfinished ...>
+[pid 2255696] futex(0x5630a26ae060, FUTEX_WAIT_PRIVATE, 2, NULL <unfinished ...>
+[pid 2255698] futex(0x5630a26ae060, FUTEX_WAKE_PRIVATE, 1 <unfinished ...>
+[pid 2255697] futex(0x5630a26ae060, FUTEX_WAKE_PRIVATE, 1 <unfinished ...>
+[pid 2255700] <... futex resumed>)      = -1 EAGAIN (Resource temporarily unavailable)
+[pid 2255698] <... futex resumed>)      = 1
+[pid 2255696] <... futex resumed>)      = -1 EAGAIN (Resource temporarily unavailable)
+[pid 2255697] <... futex resumed>)      = 0
+[pid 2255700] futex(0x5630a26ae060, FUTEX_WAKE_PRIVATE, 1 <unfinished ...>
+[pid 2255699] <... futex resumed>)      = 0
+[pid 2255698] futex(0x5630a26ae0b0, FUTEX_WAIT_BITSET_PRIVATE|FUTEX_CLOCK_REALTIME, 0, NULL, FUTEX_BITSET_MATCH_ANY <unfinished ...>
+[pid 2255700] <... futex resumed>)      = 0
+[pid 2255697] futex(0x5630a26ae0b0, FUTEX_WAIT_BITSET_PRIVATE|FUTEX_CLOCK_REALTIME, 0, NULL, FUTEX_BITSET_MATCH_ANY <unfinished ...>
+[pid 2255696] futex(0x5630a26ae060, FUTEX_WAKE_PRIVATE, 1 <unfinished ...>
+[pid 2255699] futex(0x5630a26ae060, FUTEX_WAKE_PRIVATE, 1 <unfinished ...>
+[pid 2255700] futex(0x5630a26ae0b0, FUTEX_WAIT_BITSET_PRIVATE|FUTEX_CLOCK_REALTIME, 0, NULL, FUTEX_BITSET_MATCH_ANY <unfinished ...>
+[pid 2255696] <... futex resumed>)      = 0
+[pid 2255699] <... futex resumed>)      = 0
+[pid 2255699] futex(0x5630a26ae0b0, FUTEX_WAKE_PRIVATE, 2147483647 <unfinished ...>
+[pid 2255696] futex(0x5630a26ae0b0, FUTEX_WAIT_BITSET_PRIVATE|FUTEX_CLOCK_REALTIME, 0, NULL, FUTEX_BITSET_MATCH_ANY <unfinished ...>
+[pid 2255700] <... futex resumed>)      = 0
+[pid 2255699] <... futex resumed>)      = 3
+[pid 2255696] <... futex resumed>)      = -1 EAGAIN (Resource temporarily unavailable)
+[pid 2255697] <... futex resumed>)      = 0
+[pid 2255700] futex(0x5630a26ae060, FUTEX_WAIT_PRIVATE, 2, NULL <unfinished ...>
+[pid 2255699] futex(0x5630a26ae060, FUTEX_WAKE_PRIVATE, 1 <unfinished ...>
+[pid 2255700] <... futex resumed>)      = -1 EAGAIN (Resource temporarily unavailable)
+[pid 2255697] futex(0x5630a26ae060, FUTEX_WAKE_PRIVATE, 1 <unfinished ...>
+[pid 2255696] futex(0x5630a26ae060, FUTEX_WAKE_PRIVATE, 1 <unfinished ...>
+[pid 2255699] <... futex resumed>)      = 0
+[pid 2255700] futex(0x5630a26ae060, FUTEX_WAKE_PRIVATE, 1 <unfinished ...>
+[pid 2255697] <... futex resumed>)      = 0
+[pid 2255696] <... futex resumed>)      = 0
+[pid 2255699] futex(0x5630a26ae0b4, FUTEX_WAIT_BITSET_PRIVATE|FUTEX_CLOCK_REALTIME, 0, NULL, FUTEX_BITSET_MATCH_ANY <unfinished ...>
+[pid 2255697] futex(0x5630a26ae0b4, FUTEX_WAIT_BITSET_PRIVATE|FUTEX_CLOCK_REALTIME, 0, NULL, FUTEX_BITSET_MATCH_ANY <unfinished ...>
+[pid 2255700] <... futex resumed>)      = 0
+[pid 2255696] futex(0x5630a26ae0b4, FUTEX_WAIT_BITSET_PRIVATE|FUTEX_CLOCK_REALTIME, 0, NULL, FUTEX_BITSET_MATCH_ANY <unfinished ...>
+[pid 2255700] futex(0x5630a26ae0b4, FUTEX_WAIT_BITSET_PRIVATE|FUTEX_CLOCK_REALTIME, 0, NULL, FUTEX_BITSET_MATCH_ANY <unfinished ...>
+[pid 2255698] <... futex resumed>)      = 0
+[pid 2255698] futex(0x5630a26ae060, FUTEX_WAKE_PRIVATE, 1) = 0
+[pid 2255698] futex(0x5630a26ae0b4, FUTEX_WAKE_PRIVATE, 2147483647 <unfinished ...>
+[pid 2255700] <... futex resumed>)      = 0
+[pid 2255699] <... futex resumed>)      = 0
+[pid 2255698] <... futex resumed>)      = 4
+[pid 2255697] <... futex resumed>)      = 0
+[pid 2255696] <... futex resumed>)      = 0
+[pid 2255700] futex(0x5630a26ae060, FUTEX_WAIT_PRIVATE, 2, NULL <unfinished ...>
+[pid 2255699] futex(0x5630a26ae060, FUTEX_WAIT_PRIVATE, 2, NULL <unfinished ...>
+[pid 2255698] futex(0x5630a26ae060, FUTEX_WAKE_PRIVATE, 1 <unfinished ...>
+[pid 2255700] <... futex resumed>)      = -1 EAGAIN (Resource temporarily unavailable)
+[pid 2255699] <... futex resumed>)      = -1 EAGAIN (Resource temporarily unavailable)
+[pid 2255697] futex(0x5630a26ae060, FUTEX_WAKE_PRIVATE, 1 <unfinished ...>
+[pid 2255696] futex(0x5630a26ae060, FUTEX_WAKE_PRIVATE, 1 <unfinished ...>
+[pid 2255700] futex(0x5630a26ae060, FUTEX_WAKE_PRIVATE, 1 <unfinished ...>
+[pid 2255699] futex(0x5630a26ae060, FUTEX_WAKE_PRIVATE, 1 <unfinished ...>
+[pid 2255698] <... futex resumed>)      = 0
+[pid 2255697] <... futex resumed>)      = 0
+[pid 2255700] <... futex resumed>)      = 0
+[pid 2255699] <... futex resumed>)      = 0
+[pid 2255696] <... futex resumed>)      = 0
+[pid 2255698] futex(0x5630a26ae0b0, FUTEX_WAIT_BITSET_PRIVATE|FUTEX_CLOCK_REALTIME, 0, NULL, FUTEX_BITSET_MATCH_ANY <unfinished ...>
+[pid 2255700] futex(0x5630a26ae0b0, FUTEX_WAIT_BITSET_PRIVATE|FUTEX_CLOCK_REALTIME, 0, NULL, FUTEX_BITSET_MATCH_ANY <unfinished ...>
+[pid 2255699] futex(0x5630a26ae0b0, FUTEX_WAIT_BITSET_PRIVATE|FUTEX_CLOCK_REALTIME, 0, NULL, FUTEX_BITSET_MATCH_ANY <unfinished ...>
+[pid 2255697] futex(0x5630a26ae0b0, FUTEX_WAIT_BITSET_PRIVATE|FUTEX_CLOCK_REALTIME, 0, NULL, FUTEX_BITSET_MATCH_ANY <unfinished ...>
+[pid 2255696] futex(0x5630a26ae0b0, FUTEX_WAKE_PRIVATE, 2147483647 <unfinished ...>
+[pid 2255700] <... futex resumed>)      = -1 EAGAIN (Resource temporarily unavailable)
+[pid 2255699] <... futex resumed>)      = -1 EAGAIN (Resource temporarily unavailable)
+[pid 2255698] <... futex resumed>)      = -1 EAGAIN (Resource temporarily unavailable)
+[pid 2255697] <... futex resumed>)      = -1 EAGAIN (Resource temporarily unavailable)
+[pid 2255700] futex(0x5630a26ae060, FUTEX_WAIT_PRIVATE, 2, NULL <unfinished ...>
+[pid 2255699] futex(0x5630a26ae060, FUTEX_WAIT_PRIVATE, 2, NULL <unfinished ...>
+[pid 2255696] <... futex resumed>)      = 0
+[pid 2255698] futex(0x5630a26ae060, FUTEX_WAIT_PRIVATE, 2, NULL <unfinished ...>
+[pid 2255697] futex(0x5630a26ae060, FUTEX_WAIT_PRIVATE, 2, NULL <unfinished ...>
+[pid 2255696] futex(0x5630a26ae060, FUTEX_WAKE_PRIVATE, 1 <unfinished ...>
+[pid 2255698] <... futex resumed>)      = -1 EAGAIN (Resource temporarily unavailable)
+[pid 2255697] <... futex resumed>)      = -1 EAGAIN (Resource temporarily unavailable)
+[pid 2255700] <... futex resumed>)      = 0
+[pid 2255698] futex(0x5630a26ae060, FUTEX_WAKE_PRIVATE, 1 <unfinished ...>
+[pid 2255696] <... futex resumed>)      = 1
+[pid 2255700] futex(0x5630a26ae060, FUTEX_WAKE_PRIVATE, 1 <unfinished ...>
+[pid 2255698] <... futex resumed>)      = 1
+[pid 2255697] futex(0x5630a26ae060, FUTEX_WAKE_PRIVATE, 1 <unfinished ...>
+[pid 2255700] <... futex resumed>)      = 0
+[pid 2255699] <... futex resumed>)      = 0
+[pid 2255698] futex(0x5630a26ae0b4, FUTEX_WAIT_BITSET_PRIVATE|FUTEX_CLOCK_REALTIME, 0, NULL, FUTEX_BITSET_MATCH_ANY <unfinished ...>
+[pid 2255696] futex(0x5630a26ae0b4, FUTEX_WAIT_BITSET_PRIVATE|FUTEX_CLOCK_REALTIME, 0, NULL, FUTEX_BITSET_MATCH_ANY <unfinished ...>
+[pid 2255700] futex(0x5630a26ae0b4, FUTEX_WAIT_BITSET_PRIVATE|FUTEX_CLOCK_REALTIME, 0, NULL, FUTEX_BITSET_MATCH_ANY <unfinished ...>
+[pid 2255699] futex(0x5630a26ae060, FUTEX_WAKE_PRIVATE, 1 <unfinished ...>
+[pid 2255697] <... futex resumed>)      = 0
+[pid 2255699] <... futex resumed>)      = 0
+[pid 2255697] futex(0x5630a26ae0b4, FUTEX_WAIT_BITSET_PRIVATE|FUTEX_CLOCK_REALTIME, 0, NULL, FUTEX_BITSET_MATCH_ANY <unfinished ...>
+[pid 2255699] futex(0x5630a26ae0b4, FUTEX_WAKE_PRIVATE, 2147483647 <unfinished ...>
+[pid 2255697] <... futex resumed>)      = -1 EAGAIN (Resource temporarily unavailable)
+[pid 2255700] <... futex resumed>)      = 0
+[pid 2255699] <... futex resumed>)      = 3
+[pid 2255698] <... futex resumed>)      = 0
+[pid 2255697] futex(0x5630a26ae060, FUTEX_WAIT_PRIVATE, 2, NULL <unfinished ...>
+[pid 2255696] <... futex resumed>)      = 0
+[pid 2255700] futex(0x5630a26ae060, FUTEX_WAIT_PRIVATE, 2, NULL <unfinished ...>
+[pid 2255699] futex(0x5630a26ae060, FUTEX_WAKE_PRIVATE, 1 <unfinished ...>
+[pid 2255698] futex(0x5630a26ae060, FUTEX_WAKE_PRIVATE, 1 <unfinished ...>
+[pid 2255700] <... futex resumed>)      = -1 EAGAIN (Resource temporarily unavailable)
+[pid 2255697] <... futex resumed>)      = -1 EAGAIN (Resource temporarily unavailable)
+[pid 2255696] futex(0x5630a26ae060, FUTEX_WAKE_PRIVATE, 1 <unfinished ...>
+[pid 2255700] futex(0x5630a26ae060, FUTEX_WAKE_PRIVATE, 1 <unfinished ...>
+[pid 2255699] <... futex resumed>)      = 0
+[pid 2255698] <... futex resumed>)      = 0
+[pid 2255700] <... futex resumed>)      = 0
+[pid 2255697] futex(0x5630a26ae060, FUTEX_WAKE_PRIVATE, 1 <unfinished ...>
+[pid 2255696] <... futex resumed>)      = 0
+[pid 2255700] futex(0x5630a26ae0b0, FUTEX_WAIT_BITSET_PRIVATE|FUTEX_CLOCK_REALTIME, 0, NULL, FUTEX_BITSET_MATCH_ANY <unfinished ...>
+[pid 2255699] futex(0x5630a26ae0b0, FUTEX_WAIT_BITSET_PRIVATE|FUTEX_CLOCK_REALTIME, 0, NULL, FUTEX_BITSET_MATCH_ANY <unfinished ...>
+[pid 2255698] futex(0x5630a26ae0b0, FUTEX_WAIT_BITSET_PRIVATE|FUTEX_CLOCK_REALTIME, 0, NULL, FUTEX_BITSET_MATCH_ANY <unfinished ...>
+[pid 2255697] <... futex resumed>)      = 0
+[pid 2255696] futex(0x5630a26ae0b0, FUTEX_WAIT_BITSET_PRIVATE|FUTEX_CLOCK_REALTIME, 0, NULL, FUTEX_BITSET_MATCH_ANY <unfinished ...>
+[pid 2255697] futex(0x5630a26ae0b0, FUTEX_WAKE_PRIVATE, 2147483647 <unfinished ...>
+[pid 2255696] <... futex resumed>)      = -1 EAGAIN (Resource temporarily unavailable)
+[pid 2255700] <... futex resumed>)      = 0
+[pid 2255697] <... futex resumed>)      = 3
+[pid 2255698] <... futex resumed>)      = 0
+[pid 2255696] futex(0x5630a26ae060, FUTEX_WAIT_PRIVATE, 2, NULL <unfinished ...>
+[pid 2255700] futex(0x5630a26ae060, FUTEX_WAIT_PRIVATE, 2, NULL <unfinished ...>
+[pid 2255697] futex(0x5630a26ae060, FUTEX_WAKE_PRIVATE, 1 <unfinished ...>
+[pid 2255700] <... futex resumed>)      = -1 EAGAIN (Resource temporarily unavailable)
+[pid 2255698] futex(0x5630a26ae060, FUTEX_WAKE_PRIVATE, 1 <unfinished ...>
+[pid 2255696] <... futex resumed>)      = -1 EAGAIN (Resource temporarily unavailable)
+[pid 2255700] futex(0x5630a26ae060, FUTEX_WAKE_PRIVATE, 1 <unfinished ...>
+[pid 2255697] <... futex resumed>)      = 0
+[pid 2255698] <... futex resumed>)      = 0
+[pid 2255700] <... futex resumed>)      = 0
+[pid 2255696] futex(0x5630a26ae060, FUTEX_WAKE_PRIVATE, 1 <unfinished ...>
+[pid 2255697] openat(AT_FDCWD, "/etc/ld.so.cache", O_RDONLY|O_CLOEXEC <unfinished ...>
+[pid 2255698] futex(0x7f22c27aba48, FUTEX_WAIT_PRIVATE, 2, NULL <unfinished ...>
+[pid 2255696] <... futex resumed>)      = 0
+[pid 2255700] futex(0x7f22c27aba48, FUTEX_WAIT_PRIVATE, 2, NULL <unfinished ...>
+[pid 2255696] futex(0x7f22c27aba48, FUTEX_WAIT_PRIVATE, 2, NULL <unfinished ...>
+[pid 2255699] <... futex resumed>)      = 0
+[pid 2255697] <... openat resumed>)     = 3
+[pid 2255699] futex(0x5630a26ae060, FUTEX_WAKE_PRIVATE, 1 <unfinished ...>
+[pid 2255697] newfstatat(3, "",  <unfinished ...>
+[pid 2255699] <... futex resumed>)      = 0
+[pid 2255699] futex(0x7f22c27aba48, FUTEX_WAIT_PRIVATE, 2, NULL <unfinished ...>
+[pid 2255697] <... newfstatat resumed>{st_mode=S_IFREG|0644, st_size=166595, ...}, AT_EMPTY_PATH) = 0
+[pid 2255697] mmap(NULL, 166595, PROT_READ, MAP_PRIVATE, 3, 0) = 0x7f22c2746000
+[pid 2255697] close(3)                  = 0
+[pid 2255697] mmap(NULL, 134217728, PROT_NONE, MAP_PRIVATE|MAP_ANONYMOUS|MAP_NORESERVE, -1, 0) = 0x7f22b7d15000
+[pid 2255697] munmap(0x7f22b7d15000, 3059712) = 0
+[pid 2255697] munmap(0x7f22bc000000, 64049152) = 0
+[pid 2255697] mprotect(0x7f22b8000000, 135168, PROT_READ|PROT_WRITE) = 0
+[pid 2255697] openat(AT_FDCWD, "/lib/x86_64-linux-gnu/libgcc_s.so.1", O_RDONLY|O_CLOEXEC) = 3
+[pid 2255697] read(3, "\177ELF\2\1\1\0\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0\0\0\0\0\0\0\0\0"..., 832) = 832
+[pid 2255697] newfstatat(3, "", {st_mode=S_IFREG|0644, st_size=125488, ...}, AT_EMPTY_PATH) = 0
+[pid 2255697] mmap(NULL, 127720, PROT_READ, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0x7f22bfcf5000
+[pid 2255697] mmap(0x7f22bfcf8000, 94208, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x3000) = 0x7f22bfcf8000
+[pid 2255697] mmap(0x7f22bfd0f000, 16384, PROT_READ, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x1a000) = 0x7f22bfd0f000
+[pid 2255697] mmap(0x7f22bfd13000, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x1d000) = 0x7f22bfd13000
+[pid 2255697] close(3)                  = 0
+[pid 2255697] mprotect(0x7f22bfd13000, 4096, PROT_READ) = 0
+[pid 2255697] munmap(0x7f22c2746000, 166595) = 0
+[pid 2255697] futex(0x7f22c27aba48, FUTEX_WAKE_PRIVATE, 1 <unfinished ...>
+[pid 2255700] <... futex resumed>)      = 0
+[pid 2255697] <... futex resumed>)      = 1
+[pid 2255700] futex(0x7f22c27aba48, FUTEX_WAKE_PRIVATE, 1) = 1
+[pid 2255697] futex(0x7f22bfd14210, FUTEX_WAKE_PRIVATE, 2147483647 <unfinished ...>
+[pid 2255696] <... futex resumed>)      = 0
+[pid 2255697] <... futex resumed>)      = 0
+[pid 2255696] futex(0x7f22c27aba48, FUTEX_WAKE_PRIVATE, 1 <unfinished ...>
+[pid 2255700] rt_sigprocmask(SIG_BLOCK, ~[RT_1],  <unfinished ...>
+[pid 2255697] rt_sigprocmask(SIG_BLOCK, ~[RT_1],  <unfinished ...>
+[pid 2255700] <... rt_sigprocmask resumed>NULL, 8) = 0
+[pid 2255698] <... futex resumed>)      = 0
+[pid 2255696] <... futex resumed>)      = 1
+[pid 2255700] madvise(0x7f22bfd15000, 8368128, MADV_DONTNEED <unfinished ...>
+[pid 2255697] <... rt_sigprocmask resumed>NULL, 8) = 0
+[pid 2255698] futex(0x7f22c27aba48, FUTEX_WAKE_PRIVATE, 1 <unfinished ...>
+[pid 2255696] rt_sigprocmask(SIG_BLOCK, ~[RT_1],  <unfinished ...>
+[pid 2255700] <... madvise resumed>)    = 0
+[pid 2255698] <... futex resumed>)      = 1
+[pid 2255697] madvise(0x7f22c1518000, 8368128, MADV_DONTNEED <unfinished ...>
+[pid 2255700] exit(0 <unfinished ...>
+[pid 2255699] <... futex resumed>)      = 0
+[pid 2255696] <... rt_sigprocmask resumed>NULL, 8) = 0
+[pid 2255700] <... exit resumed>)       = ?
+[pid 2255698] rt_sigprocmask(SIG_BLOCK, ~[RT_1],  <unfinished ...>
+[pid 2255697] <... madvise resumed>)    = 0
+[pid 2255699] futex(0x7f22c27aba48, FUTEX_WAKE_PRIVATE, 1 <unfinished ...>
+[pid 2255698] <... rt_sigprocmask resumed>NULL, 8) = 0
+[pid 2255696] madvise(0x7f22c1d19000, 8368128, MADV_DONTNEED <unfinished ...>
+[pid 2255700] +++ exited with 0 +++
+[pid 2255699] <... futex resumed>)      = 0
+[pid 2255697] exit(0 <unfinished ...>
+[pid 2255698] madvise(0x7f22c0d17000, 8368128, MADV_DONTNEED <unfinished ...>
+[pid 2255696] <... madvise resumed>)    = 0
+[pid 2255699] rt_sigprocmask(SIG_BLOCK, ~[RT_1],  <unfinished ...>
+[pid 2255697] <... exit resumed>)       = ?
+[pid 2255698] <... madvise resumed>)    = 0
+[pid 2255696] exit(0 <unfinished ...>
+[pid 2255699] <... rt_sigprocmask resumed>NULL, 8) = 0
+[pid 2255698] exit(0 <unfinished ...>
+[pid 2255697] +++ exited with 0 +++
+[pid 2255696] <... exit resumed>)       = ?
+[pid 2255699] madvise(0x7f22c0516000, 8368128, MADV_DONTNEED <unfinished ...>
+[pid 2255698] <... exit resumed>)       = ?
+[pid 2255699] <... madvise resumed>)    = 0
+[pid 2255657] <... futex resumed>)      = 0
+[pid 2255698] +++ exited with 0 +++
+[pid 2255696] +++ exited with 0 +++
+[pid 2255699] exit(0 <unfinished ...>
+[pid 2255657] futex(0x7f22c0d16910, FUTEX_WAIT_BITSET|FUTEX_CLOCK_REALTIME, 2255699, NULL, FUTEX_BITSET_MATCH_ANY <unfinished ...>
+[pid 2255699] <... exit resumed>)       = ?
+[pid 2255657] <... futex resumed>)      = 0
+[pid 2255699] +++ exited with 0 +++
+munmap(0x7f22c1d19000, 8392704)         = 0
+clock_gettime(CLOCK_PROCESS_CPUTIME_ID, {tv_sec=0, tv_nsec=4359011}) = 0
+write(1, "\320\237\320\276\320\264\321\201\321\202\321\200\320\276\320\272\320\260 \320\262\320\277\320\265\321\200\320\262\321\213\320"..., 81Подстрока впервые встречается на индексе: 76
+) = 81
+write(1, "\320\222\321\200\320\265\320\274\321\217 \320\267\320\260\321\202\321\200\320\260\321\207\320\265\320\275\320\275\320\276\320"..., 92Время затраченное на поиск подстроки: 0.002603 секунд
 ) = 92
 write(1, "\320\234\320\260\320\272\321\201\320\270\320\274\320\260\320\273\321\214\320\275\320\276\320\265 \320\272\320\276\320\273\320"..., 65Максимальное количество потоков: 5
 
 ) = 65
-clock_gettime(CLOCK_PROCESS_CPUTIME_ID, {tv_sec=0, tv_nsec=4125371}) = 0
-rt_sigprocmask(SIG_BLOCK, ~[], [], 8)   = 0
-clone3({flags=CLONE_VM|CLONE_FS|CLONE_FILES|CLONE_SIGHAND|CLONE_THREAD|CLONE_SYSVSEM|CLONE_SETTLS|CLONE_PARENT_SETTID|CLONE_CHILD_CLEARTID, child_tid=0x7ff68a31f910, parent_tid=0x7ff68a31f910, exit_signal=0, stack=0x7ff689b1f000, stack_size=0x7fff00, tls=0x7ff68a31f640}strace: Process 89690 attached
- => {parent_tid=[89690]}, 88) = 89690
-[pid 89690] rseq(0x7ff68a31ffe0, 0x20, 0, 0x53053053 <unfinished ...>
-[pid 89616] rt_sigprocmask(SIG_SETMASK, [],  <unfinished ...>
-[pid 89690] <... rseq resumed>)         = 0
-[pid 89616] <... rt_sigprocmask resumed>NULL, 8) = 0
-[pid 89690] set_robust_list(0x7ff68a31f920, 24 <unfinished ...>
-[pid 89616] futex(0x7ff68a31f910, FUTEX_WAIT_BITSET|FUTEX_CLOCK_REALTIME, 89690, NULL, FUTEX_BITSET_MATCH_ANY <unfinished ...>
-[pid 89690] <... set_robust_list resumed>) = 0
-[pid 89690] rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
-[pid 89690] rt_sigprocmask(SIG_BLOCK, ~[RT_1], NULL, 8) = 0
-[pid 89690] madvise(0x7ff689b1f000, 8368128, MADV_DONTNEED) = 0
-[pid 89690] exit(0)                     = ?
-[pid 89616] <... futex resumed>)        = 0
-[pid 89690] +++ exited with 0 +++
-clock_gettime(CLOCK_PROCESS_CPUTIME_ID, {tv_sec=0, tv_nsec=4387319}) = 0
-write(1, "\320\237\320\276\320\264\321\201\321\202\321\200\320\276\320\272\320\260 \320\262\320\277\320\265\321\200\320\262\321\213\320"..., 83Подстрока впервые встречается на индексе: 7773
-) = 83
-write(1, "\320\222\321\200\320\265\320\274\321\217 \320\267\320\260\321\202\321\200\320\260\321\207\320\265\320\275\320\275\320\276\320"..., 92Время затраченное на поиск подстроки: 0.000262 секунд
-) = 92
-write(1, "\320\234\320\260\320\272\321\201\320\270\320\274\320\260\320\273\321\214\320\275\320\276\320\265 \320\272\320\276\320\273\320"..., 65Максимальное количество потоков: 1
-
-) = 65
-write(1, "\320\240\320\265\320\267\321\203\320\273\321\214\321\202\320\260\321\202 \320\276\320\264\320\275\320\276\320\277\320\276\321"..., 58Результат однопоточной strstr: 7773 
-) = 58
 lseek(0, -1, SEEK_CUR)                  = -1 ESPIPE (Illegal seek)
 exit_group(0)                           = ?
 +++ exited with 0 +++

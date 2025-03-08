@@ -5,7 +5,8 @@
 
 ## Сборка лабы:
 ```
-gcc nps.c -o nps
+gcc nps.c -std=c11 -o nps -lpthread
+
 ```
 
 ## Запуск лабы:
