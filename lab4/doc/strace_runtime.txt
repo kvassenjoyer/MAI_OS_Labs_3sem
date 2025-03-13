@@ -1,0 +1,115 @@
+strace -f ./runtime 
+execve("./runtime", ["./runtime"], 0x7ffd741033a8 /* 77 vars */) = 0
+brk(NULL)                               = 0x55ffd5a4a000
+arch_prctl(0x3001 /* ARCH_??? */, 0x7ffe75df3700) = -1 EINVAL (Invalid argument)
+mmap(NULL, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fe2fc34c000
+access("/etc/ld.so.preload", R_OK)      = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/etc/ld.so.cache", O_RDONLY|O_CLOEXEC) = 3
+newfstatat(3, "", {st_mode=S_IFREG|0644, st_size=167639, ...}, AT_EMPTY_PATH) = 0
+mmap(NULL, 167639, PROT_READ, MAP_PRIVATE, 3, 0) = 0x7fe2fc323000
+close(3)                                = 0
+openat(AT_FDCWD, "/lib/x86_64-linux-gnu/libstdc++.so.6", O_RDONLY|O_CLOEXEC) = 3
+read(3, "\177ELF\2\1\1\3\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0\0\0\0\0\0\0\0\0"..., 832) = 832
+newfstatat(3, "", {st_mode=S_IFREG|0644, st_size=2260296, ...}, AT_EMPTY_PATH) = 0
+mmap(NULL, 2275520, PROT_READ, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0x7fe2fc0f7000
+mprotect(0x7fe2fc191000, 1576960, PROT_NONE) = 0
+mmap(0x7fe2fc191000, 1118208, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x9a000) = 0x7fe2fc191000
+mmap(0x7fe2fc2a2000, 454656, PROT_READ, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x1ab000) = 0x7fe2fc2a2000
+mmap(0x7fe2fc312000, 57344, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x21a000) = 0x7fe2fc312000
+mmap(0x7fe2fc320000, 10432, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0x7fe2fc320000
+close(3)                                = 0
+openat(AT_FDCWD, "/lib/x86_64-linux-gnu/libc.so.6", O_RDONLY|O_CLOEXEC) = 3
+read(3, "\177ELF\2\1\1\3\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0P\237\2\0\0\0\0\0"..., 832) = 832
+pread64(3, "\6\0\0\0\4\0\0\0@\0\0\0\0\0\0\0@\0\0\0\0\0\0\0@\0\0\0\0\0\0\0"..., 784, 64) = 784
+pread64(3, "\4\0\0\0 \0\0\0\5\0\0\0GNU\0\2\0\0\300\4\0\0\0\3\0\0\0\0\0\0\0"..., 48, 848) = 48
+pread64(3, "\4\0\0\0\24\0\0\0\3\0\0\0GNU\0\315A\vq\17\17\tLh2\355\331Y1\0m"..., 68, 896) = 68
+newfstatat(3, "", {st_mode=S_IFREG|0755, st_size=2220400, ...}, AT_EMPTY_PATH) = 0
+pread64(3, "\6\0\0\0\4\0\0\0@\0\0\0\0\0\0\0@\0\0\0\0\0\0\0@\0\0\0\0\0\0\0"..., 784, 64) = 784
+mmap(NULL, 2264656, PROT_READ, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0x7fe2fbece000
+mprotect(0x7fe2fbef6000, 2023424, PROT_NONE) = 0
+mmap(0x7fe2fbef6000, 1658880, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x28000) = 0x7fe2fbef6000
+mmap(0x7fe2fc08b000, 360448, PROT_READ, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x1bd000) = 0x7fe2fc08b000
+mmap(0x7fe2fc0e4000, 24576, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x215000) = 0x7fe2fc0e4000
+mmap(0x7fe2fc0ea000, 52816, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0x7fe2fc0ea000
+close(3)                                = 0
+openat(AT_FDCWD, "/lib/x86_64-linux-gnu/libm.so.6", O_RDONLY|O_CLOEXEC) = 3
+read(3, "\177ELF\2\1\1\3\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0\0\0\0\0\0\0\0\0"..., 832) = 832
+newfstatat(3, "", {st_mode=S_IFREG|0644, st_size=940560, ...}, AT_EMPTY_PATH) = 0
+mmap(NULL, 942344, PROT_READ, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0x7fe2fbde7000
+mmap(0x7fe2fbdf5000, 507904, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0xe000) = 0x7fe2fbdf5000
+mmap(0x7fe2fbe71000, 372736, PROT_READ, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x8a000) = 0x7fe2fbe71000
+mmap(0x7fe2fbecc000, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0xe4000) = 0x7fe2fbecc000
+close(3)                                = 0
+openat(AT_FDCWD, "/lib/x86_64-linux-gnu/libgcc_s.so.1", O_RDONLY|O_CLOEXEC) = 3
+read(3, "\177ELF\2\1\1\0\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0\0\0\0\0\0\0\0\0"..., 832) = 832
+newfstatat(3, "", {st_mode=S_IFREG|0644, st_size=125488, ...}, AT_EMPTY_PATH) = 0
+mmap(NULL, 127720, PROT_READ, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0x7fe2fbdc7000
+mmap(0x7fe2fbdca000, 94208, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x3000) = 0x7fe2fbdca000
+mmap(0x7fe2fbde1000, 16384, PROT_READ, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x1a000) = 0x7fe2fbde1000
+mmap(0x7fe2fbde5000, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x1d000) = 0x7fe2fbde5000
+close(3)                                = 0
+mmap(NULL, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fe2fbdc5000
+arch_prctl(ARCH_SET_FS, 0x7fe2fbdc63c0) = 0
+set_tid_address(0x7fe2fbdc6690)         = 816025
+set_robust_list(0x7fe2fbdc66a0, 24)     = 0
+rseq(0x7fe2fbdc6d60, 0x20, 0, 0x53053053) = 0
+mprotect(0x7fe2fc0e4000, 16384, PROT_READ) = 0
+mprotect(0x7fe2fbde5000, 4096, PROT_READ) = 0
+mprotect(0x7fe2fbecc000, 4096, PROT_READ) = 0
+mmap(NULL, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fe2fbdc3000
+mprotect(0x7fe2fc312000, 45056, PROT_READ) = 0
+mprotect(0x55ffbc619000, 4096, PROT_READ) = 0
+mprotect(0x7fe2fc38c000, 8192, PROT_READ) = 0
+prlimit64(0, RLIMIT_STACK, NULL, {rlim_cur=8192*1024, rlim_max=RLIM64_INFINITY}) = 0
+munmap(0x7fe2fc323000, 167639)          = 0
+getrandom("\x32\x9d\xb9\x9e\xae\x17\xd4\x68", 8, GRND_NONBLOCK) = 8
+brk(NULL)                               = 0x55ffd5a4a000
+brk(0x55ffd5a6b000)                     = 0x55ffd5a6b000
+futex(0x7fe2fc32077c, FUTEX_WAKE_PRIVATE, 2147483647) = 0
+openat(AT_FDCWD, "libs/prime_sieve.so", O_RDONLY|O_CLOEXEC) = 3
+read(3, "\177ELF\2\1\1\0\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0\0\0\0\0\0\0\0\0"..., 832) = 832
+newfstatat(3, "", {st_mode=S_IFREG|0775, st_size=28376, ...}, AT_EMPTY_PATH) = 0
+getcwd("/home/user/Desktop/all/main/projects/c_projects/MAI_OS_Labs_3sem/lab4", 128) = 70
+mmap(NULL, 25048, PROT_READ, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0x7fe2fc345000
+mmap(0x7fe2fc347000, 8192, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x2000) = 0x7fe2fc347000
+mmap(0x7fe2fc349000, 4096, PROT_READ, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x4000) = 0x7fe2fc349000
+mmap(0x7fe2fc34a000, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x4000) = 0x7fe2fc34a000
+close(3)                                = 0
+mprotect(0x7fe2fc34a000, 4096, PROT_READ) = 0
+openat(AT_FDCWD, "libs/hoare_sort.so", O_RDONLY|O_CLOEXEC) = 3
+read(3, "\177ELF\2\1\1\0\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0\0\0\0\0\0\0\0\0"..., 832) = 832
+newfstatat(3, "", {st_mode=S_IFREG|0775, st_size=33752, ...}, AT_EMPTY_PATH) = 0
+getcwd("/home/user/Desktop/all/main/projects/c_projects/MAI_OS_Labs_3sem/lab4", 128) = 70
+mmap(NULL, 29240, PROT_READ, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0x7fe2fc33d000
+mmap(0x7fe2fc340000, 8192, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x3000) = 0x7fe2fc340000
+mmap(0x7fe2fc342000, 4096, PROT_READ, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x5000) = 0x7fe2fc342000
+mmap(0x7fe2fc343000, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x5000) = 0x7fe2fc343000
+close(3)                                = 0
+mprotect(0x7fe2fc343000, 4096, PROT_READ) = 0
+newfstatat(1, "", {st_mode=S_IFCHR|0620, st_rdev=makedev(0x88, 0xe), ...}, AT_EMPTY_PATH) = 0
+write(1, "\n", 1
+)                       = 1
+write(1, "[RUNTIME MENU]\n", 15[RUNTIME MENU]
+)        = 15
+write(1, "\320\222\321\213\320\261\320\265\321\200\320\270\321\202\320\265 \320\276\320\277\321\206\320\270\321\216:\n", 29Выберите опцию:
+) = 29
+write(1, "1) \320\237\320\276\320\264\321\201\321\207\320\265\321\202 \320\272\320\276\320\273-\320\262\320\260 \320\277"..., 871) Подсчет кол-ва простых чисел в интервале [А; Б]
+) = 87
+write(1, "2) \320\241\320\276\321\200\321\202\320\270\321\200\320\276\320\262\320\272\320\260 \321\206\320\265\320\273\320\276"..., 682) Сортировка целочисленного массива
+) = 68
+newfstatat(0, "", {st_mode=S_IFCHR|0620, st_rdev=makedev(0x88, 0xe), ...}, AT_EMPTY_PATH) = 0
+read(0, 1
+"1\n", 1024)                    = 2
+write(1, "\320\222\320\262\320\265\320\264\320\270\321\202\320\265 \320\275\320\260\321\202\321\203\321\200\320\260\320\273\321\214\320"..., 58Введите натуральные числа A и Б:
+) = 58
+read(0, 1
+"1\n", 1024)                    = 2
+read(0, 500
+"500\n", 1024)                  = 4
+write(1, "\320\240\320\265\320\267\321\203\320\273\321\214\321\202\320\260\321\202: 95\n", 23Результат: 95
+) = 23
+munmap(0x7fe2fc345000, 25048)           = 0
+munmap(0x7fe2fc33d000, 29240)           = 0
+lseek(0, -1, SEEK_CUR)                  = -1 ESPIPE (Illegal seek)
+exit_group(0)                           = ?
++++ exited with 0 +++

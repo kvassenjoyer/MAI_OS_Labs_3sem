@@ -1,0 +1,117 @@
+strace -f ./static
+execve("./static", ["./static"], 0x7ffe25dcc398 /* 77 vars */) = 0
+brk(NULL)                               = 0x55fdfa747000
+arch_prctl(0x3001 /* ARCH_??? */, 0x7ffc5568dfb0) = -1 EINVAL (Invalid argument)
+mmap(NULL, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f9f29549000
+access("/etc/ld.so.preload", R_OK)      = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/etc/ld.so.cache", O_RDONLY|O_CLOEXEC) = 3
+newfstatat(3, "", {st_mode=S_IFREG|0644, st_size=167639, ...}, AT_EMPTY_PATH) = 0
+mmap(NULL, 167639, PROT_READ, MAP_PRIVATE, 3, 0) = 0x7f9f29520000
+close(3)                                = 0
+openat(AT_FDCWD, "/lib/x86_64-linux-gnu/libstdc++.so.6", O_RDONLY|O_CLOEXEC) = 3
+read(3, "\177ELF\2\1\1\3\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0\0\0\0\0\0\0\0\0"..., 832) = 832
+newfstatat(3, "", {st_mode=S_IFREG|0644, st_size=2260296, ...}, AT_EMPTY_PATH) = 0
+mmap(NULL, 2275520, PROT_READ, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0x7f9f292f4000
+mprotect(0x7f9f2938e000, 1576960, PROT_NONE) = 0
+mmap(0x7f9f2938e000, 1118208, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x9a000) = 0x7f9f2938e000
+mmap(0x7f9f2949f000, 454656, PROT_READ, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x1ab000) = 0x7f9f2949f000
+mmap(0x7f9f2950f000, 57344, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x21a000) = 0x7f9f2950f000
+mmap(0x7f9f2951d000, 10432, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0x7f9f2951d000
+close(3)                                = 0
+openat(AT_FDCWD, "/lib/x86_64-linux-gnu/libm.so.6", O_RDONLY|O_CLOEXEC) = 3
+read(3, "\177ELF\2\1\1\3\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0\0\0\0\0\0\0\0\0"..., 832) = 832
+newfstatat(3, "", {st_mode=S_IFREG|0644, st_size=940560, ...}, AT_EMPTY_PATH) = 0
+mmap(NULL, 942344, PROT_READ, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0x7f9f2920d000
+mmap(0x7f9f2921b000, 507904, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0xe000) = 0x7f9f2921b000
+mmap(0x7f9f29297000, 372736, PROT_READ, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x8a000) = 0x7f9f29297000
+mmap(0x7f9f292f2000, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0xe4000) = 0x7f9f292f2000
+close(3)                                = 0
+openat(AT_FDCWD, "/lib/x86_64-linux-gnu/libc.so.6", O_RDONLY|O_CLOEXEC) = 3
+read(3, "\177ELF\2\1\1\3\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0P\237\2\0\0\0\0\0"..., 832) = 832
+pread64(3, "\6\0\0\0\4\0\0\0@\0\0\0\0\0\0\0@\0\0\0\0\0\0\0@\0\0\0\0\0\0\0"..., 784, 64) = 784
+pread64(3, "\4\0\0\0 \0\0\0\5\0\0\0GNU\0\2\0\0\300\4\0\0\0\3\0\0\0\0\0\0\0"..., 48, 848) = 48
+pread64(3, "\4\0\0\0\24\0\0\0\3\0\0\0GNU\0\315A\vq\17\17\tLh2\355\331Y1\0m"..., 68, 896) = 68
+newfstatat(3, "", {st_mode=S_IFREG|0755, st_size=2220400, ...}, AT_EMPTY_PATH) = 0
+pread64(3, "\6\0\0\0\4\0\0\0@\0\0\0\0\0\0\0@\0\0\0\0\0\0\0@\0\0\0\0\0\0\0"..., 784, 64) = 784
+mmap(NULL, 2264656, PROT_READ, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0x7f9f28fe4000
+mprotect(0x7f9f2900c000, 2023424, PROT_NONE) = 0
+mmap(0x7f9f2900c000, 1658880, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x28000) = 0x7f9f2900c000
+mmap(0x7f9f291a1000, 360448, PROT_READ, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x1bd000) = 0x7f9f291a1000
+mmap(0x7f9f291fa000, 24576, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x215000) = 0x7f9f291fa000
+mmap(0x7f9f29200000, 52816, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0x7f9f29200000
+close(3)                                = 0
+openat(AT_FDCWD, "/lib/x86_64-linux-gnu/libgcc_s.so.1", O_RDONLY|O_CLOEXEC) = 3
+read(3, "\177ELF\2\1\1\0\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0\0\0\0\0\0\0\0\0"..., 832) = 832
+newfstatat(3, "", {st_mode=S_IFREG|0644, st_size=125488, ...}, AT_EMPTY_PATH) = 0
+mmap(NULL, 127720, PROT_READ, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0x7f9f28fc4000
+mmap(0x7f9f28fc7000, 94208, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x3000) = 0x7f9f28fc7000
+mmap(0x7f9f28fde000, 16384, PROT_READ, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x1a000) = 0x7f9f28fde000
+mmap(0x7f9f28fe2000, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x1d000) = 0x7f9f28fe2000
+close(3)                                = 0
+mmap(NULL, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f9f28fc2000
+arch_prctl(ARCH_SET_FS, 0x7f9f28fc33c0) = 0
+set_tid_address(0x7f9f28fc3690)         = 814968
+set_robust_list(0x7f9f28fc36a0, 24)     = 0
+rseq(0x7f9f28fc3d60, 0x20, 0, 0x53053053) = 0
+mprotect(0x7f9f291fa000, 16384, PROT_READ) = 0
+mprotect(0x7f9f28fe2000, 4096, PROT_READ) = 0
+mprotect(0x7f9f292f2000, 4096, PROT_READ) = 0
+mmap(NULL, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f9f28fc0000
+mprotect(0x7f9f2950f000, 45056, PROT_READ) = 0
+mprotect(0x55fdc02c0000, 4096, PROT_READ) = 0
+mprotect(0x7f9f29583000, 8192, PROT_READ) = 0
+prlimit64(0, RLIMIT_STACK, NULL, {rlim_cur=8192*1024, rlim_max=RLIM64_INFINITY}) = 0
+munmap(0x7f9f29520000, 167639)          = 0
+getrandom("\x2d\xd0\xb8\x62\x2b\xc5\x84\xd2", 8, GRND_NONBLOCK) = 8
+brk(NULL)                               = 0x55fdfa747000
+brk(0x55fdfa768000)                     = 0x55fdfa768000
+futex(0x7f9f2951d77c, FUTEX_WAKE_PRIVATE, 2147483647) = 0
+newfstatat(1, "", {st_mode=S_IFCHR|0620, st_rdev=makedev(0x88, 0xe), ...}, AT_EMPTY_PATH) = 0
+write(1, "\n", 1
+)                       = 1
+write(1, "[STATIC MENU]\n", 14[STATIC MENU]
+)         = 14
+write(1, "\320\222\321\213\320\261\320\265\321\200\320\270\321\202\320\265 \320\276\320\277\321\206\320\270\321\216:\n", 29Выберите опцию:
+) = 29
+write(1, "1) \320\237\320\276\320\264\321\201\321\207\320\265\321\202 \320\272\320\276\320\273-\320\262\320\260 \320\277"..., 871) Подсчет кол-ва простых чисел в интервале [А; Б]
+) = 87
+write(1, "2) \320\241\320\276\321\200\321\202\320\270\321\200\320\276\320\262\320\272\320\260 \321\206\320\265\320\273\320\276"..., 682) Сортировка целочисленного массива
+) = 68
+newfstatat(0, "", {st_mode=S_IFCHR|0620, st_rdev=makedev(0x88, 0xe), ...}, AT_EMPTY_PATH) = 0
+read(0, 0x55fdfa7592c0, 1024)           = ? ERESTARTSYS (To be restarted if SA_RESTART is set)
+--- SIGWINCH {si_signo=SIGWINCH, si_code=SI_KERNEL} ---
+read(0, 0x55fdfa7592c0, 1024)           = ? ERESTARTSYS (To be restarted if SA_RESTART is set)
+--- SIGWINCH {si_signo=SIGWINCH, si_code=SI_KERNEL} ---
+read(0, 0x55fdfa7592c0, 1024)           = ? ERESTARTSYS (To be restarted if SA_RESTART is set)
+--- SIGWINCH {si_signo=SIGWINCH, si_code=SI_KERNEL} ---
+read(0, 0x55fdfa7592c0, 1024)           = ? ERESTARTSYS (To be restarted if SA_RESTART is set)
+--- SIGWINCH {si_signo=SIGWINCH, si_code=SI_KERNEL} ---
+read(0, 0x55fdfa7592c0, 1024)           = ? ERESTARTSYS (To be restarted if SA_RESTART is set)
+--- SIGWINCH {si_signo=SIGWINCH, si_code=SI_KERNEL} ---
+read(0, 0x55fdfa7592c0, 1024)           = ? ERESTARTSYS (To be restarted if SA_RESTART is set)
+--- SIGWINCH {si_signo=SIGWINCH, si_code=SI_KERNEL} ---
+read(0, 0x55fdfa7592c0, 1024)           = ? ERESTARTSYS (To be restarted if SA_RESTART is set)
+--- SIGWINCH {si_signo=SIGWINCH, si_code=SI_KERNEL} ---
+read(0, 0x55fdfa7592c0, 1024)           = ? ERESTARTSYS (To be restarted if SA_RESTART is set)
+--- SIGWINCH {si_signo=SIGWINCH, si_code=SI_KERNEL} ---
+read(0, 0x55fdfa7592c0, 1024)           = ? ERESTARTSYS (To be restarted if SA_RESTART is set)
+--- SIGWINCH {si_signo=SIGWINCH, si_code=SI_KERNEL} ---
+read(0, 0x55fdfa7592c0, 1024)           = ? ERESTARTSYS (To be restarted if SA_RESTART is set)
+--- SIGWINCH {si_signo=SIGWINCH, si_code=SI_KERNEL} ---
+read(0, 0x55fdfa7592c0, 1024)           = ? ERESTARTSYS (To be restarted if SA_RESTART is set)
+--- SIGWINCH {si_signo=SIGWINCH, si_code=SI_KERNEL} ---
+read(0, 0x55fdfa7592c0, 1024)           = ? ERESTARTSYS (To be restarted if SA_RESTART is set)
+--- SIGWINCH {si_signo=SIGWINCH, si_code=SI_KERNEL} ---
+read(0, 0x55fdfa7592c0, 1024)           = ? ERESTARTSYS (To be restarted if SA_RESTART is set)
+--- SIGWINCH {si_signo=SIGWINCH, si_code=SI_KERNEL} ---
+read(0, 1
+"1\n", 1024)                    = 2
+write(1, "\320\222\320\262\320\265\320\264\320\270\321\202\320\265 \320\275\320\260\321\202\321\203\321\200\320\260\320\273\321\214\320"..., 58Введите натуральные числа A и Б:
+) = 58
+read(0, 1 500
+"1 500\n", 1024)                = 6
+write(1, "\320\240\320\265\320\267\321\203\320\273\321\214\321\202\320\260\321\202: 95\n", 23Результат: 95
+) = 23
+lseek(0, -1, SEEK_CUR)                  = -1 ESPIPE (Illegal seek)
+exit_group(0)                           = ?
++++ exited with 0 +++
