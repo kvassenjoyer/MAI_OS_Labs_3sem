@@ -116,6 +116,19 @@ int send_request(void *context, const char *endpoint, const char *request, char 
     return 0;
 }
 
+void show_subtree(Node *root, int depth) {
+    if (!root) return;
+
+    for (int i = 0; i < depth; i++) {
+        printf("  ");
+    }
+
+    printf("Node ID: %d, PID: %d\n", root->id, root->pid);
+
+    show_subtree(root->left, depth + 1);
+    show_subtree(root->right, depth + 1);
+}
+
 int main() {
     struct sigaction sa;
     sa.sa_handler = sigchld_handler;
@@ -225,6 +238,23 @@ int main() {
                 continue;
             }
             printf("%s\n", reply);
+
+        } else if (strcmp(cmd, "show") == 0) {
+            char *id_str = strtok(NULL, " \t\n");
+            if (!id_str) {
+                printf("Error: Invalid command\n");
+                continue;
+            }
+            int node_id = atoi(id_str);
+            Node *node = find_node(root, node_id);
+            if (!node) {
+                printf("Error:%d: Not found\n", node_id);
+                continue;
+            }
+
+            // Вывод поддерева, начиная с указанного узла
+            printf("Subtree for node %d:\n", node_id);
+            show_subtree(node, 0);
 
         } else if (strcmp(cmd, "exit") == 0) {
             break;
