@@ -10,7 +10,6 @@
 #include <thread>
 #include <atomic>
 
-// Парсер INI для секции [DAG]
 bool parseIniFile(const std::string& filename,
                   std::vector<std::string>& jobs,
                   std::vector<std::pair<std::string, std::string> >& dependencies)
@@ -94,7 +93,7 @@ bool parseIniFile(const std::string& filename,
     return true;
 }
 
-// Алгоритм топологической сортировки (проверка отсутствия циклов и единственной компоненты)
+// Проверка отсутствия циклов и единственной компоненты
 std::vector<std::string> topologicalSort(
     const std::vector<std::string>& jobs,
     const std::unordered_map<std::string, std::vector<std::string> >& graph,
@@ -125,7 +124,6 @@ std::vector<std::string> topologicalSort(
     return result;
 }
 
-// Поиск стартовых и завершающих джоб
 void findStartAndEndJobs(
     const std::vector<std::string>& jobs,
     const std::unordered_map<std::string, std::vector<std::string> >& graph,
@@ -146,7 +144,6 @@ void findStartAndEndJobs(
         throw std::runtime_error("Нет завершающих джоб (нет джоб без исходящих рёбер).");
 }
 
-// Симуляция выполнения джобы
 void executeJob(const std::string& jobName)
 {
     std::cout << "Запуск джобы " << jobName << "..." << std::endl;
@@ -175,7 +172,7 @@ void executeDAGWithBarrier(
         }
     }
 
-    // Группируем джобы по уровням
+    // Группируем и выполняем джобы по уровням
     std::unordered_map<int, std::vector<std::string> > levelGroups;
     int maxLevel = 0;
     for (const auto& job : jobs) {
@@ -187,7 +184,6 @@ void executeDAGWithBarrier(
 
     std::atomic<bool> errorOccurred(false);
 
-    // Выполняем по уровням
     for (int lvl = 0; lvl <= maxLevel; ++lvl) {
         std::vector<std::string> jobsAtLevel = levelGroups[lvl];
         std::vector<std::thread> threads;
@@ -202,7 +198,7 @@ void executeDAGWithBarrier(
                 }
             }));
         }
-        // Barrier: ожидаем завершения всех потоков данного уровня
+        // Ожидаем завершения всех потоков данного уровня
         for (auto& t : threads) {
             t.join();
         }
@@ -258,7 +254,6 @@ int main(int argc, char* argv[])
             std::cout << ej << " ";
         std::cout << std::endl;
 
-        // Выполнение DAG с использованием параллельных джоб и барьера
         executeDAGWithBarrier(jobs, topoOrder, graph);
         std::cout << "Все джобы DAG успешно выполнены!" << std::endl;
     }
