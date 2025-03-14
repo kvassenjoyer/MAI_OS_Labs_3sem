@@ -4,7 +4,6 @@
 #include <zmq.h>
 #include <ctype.h>
 
-// Функция для поиска шаблона в строке
 void find_pattern(const char *text, const char *pattern, char *result, size_t result_size) {
     size_t text_len = strlen(text);
     size_t pat_len = strlen(pattern);
@@ -43,7 +42,6 @@ int main(int argc, char *argv[]) {
 
     const char *endpoint = argv[1];
 
-    // Создание контекста и сокета
     void *context = zmq_ctx_new();
     if (!context) {
         fprintf(stderr, "Error: Failed to create ZMQ context\n");
@@ -68,7 +66,6 @@ int main(int argc, char *argv[]) {
         zmq_msg_t request;
         zmq_msg_init(&request);
 
-        // Получение запроса
         int rc = zmq_msg_recv(&request, socket, 0);
         if (rc == -1) {
             zmq_msg_close(&request);
@@ -111,7 +108,6 @@ int main(int argc, char *argv[]) {
         free(req_str);
     }
 
-    // Завершение работы
     zmq_close(socket);
     zmq_ctx_destroy(context);
     printf("Worker at %s terminated\n", endpoint);

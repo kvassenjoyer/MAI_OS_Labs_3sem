@@ -8,7 +8,6 @@
 #include <errno.h>
 #include <signal.h>
 
-// Узел бинарного дерева
 typedef struct Node {
     int id;
     pid_t pid;
@@ -17,10 +16,8 @@ typedef struct Node {
     struct Node *right;
 } Node;
 
-// Глобальный корень дерева
 Node *root = NULL;
 
-// Создание нового узла
 Node* add_node(Node *root, int id) {
     if (!root) {
         Node *node = (Node*)malloc(sizeof(Node));
@@ -38,7 +35,6 @@ Node* add_node(Node *root, int id) {
     return root;
 }
 
-// Поиск узла по ID
 Node* find_node(Node *root, int id) {
     if (!root) return NULL;
     if (id == root->id) return root;
@@ -49,12 +45,11 @@ Node* find_node(Node *root, int id) {
 void sigchld_handler(int signum) {
     int saved_errno = errno;
     while (waitpid(-1, NULL, WNOHANG) > 0) {
-        // Wait for all child processes to terminate
+        // Ожидание окончания всех дочерних процессовв
     }
     errno = saved_errno;
 }
 
-// Освобождение дерева
 void free_tree(Node *root) {
     if (!root) return;
     free_tree(root->left);
@@ -62,7 +57,6 @@ void free_tree(Node *root) {
     free(root);
 }
 
-// Завершение процессов и очистка ресурсов
 void cleanup_nodes(Node *root) {
     if (!root) return;
 
@@ -77,7 +71,6 @@ void cleanup_nodes(Node *root) {
     cleanup_nodes(root->right);
 }
 
-// Отправка запросов узлу
 int send_request(void *context, const char *endpoint, const char *request, char *reply, size_t reply_size) {
     void *socket = zmq_socket(context, ZMQ_REQ);
     if (!socket) return -1;
@@ -88,7 +81,7 @@ int send_request(void *context, const char *endpoint, const char *request, char 
 
     if (zmq_connect(socket, endpoint) != 0) {
         zmq_close(socket);
-        return -1; // Узел недоступен
+        return -1;
     }
 
     zmq_msg_t msg;
@@ -107,7 +100,7 @@ int send_request(void *context, const char *endpoint, const char *request, char 
     if (rc == -1) {
         zmq_msg_close(&resp);
         zmq_close(socket);
-        return -1; // Ошибка при получении ответа
+        return -1;
     }
     int len = rc;
     if (len < (int)reply_size) {
